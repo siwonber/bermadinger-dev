@@ -3,12 +3,12 @@ import React from "react";
 const CodeWindow = () => {
   return (
     <div className="mx-auto my-8 bg-[#0A192F] rounded-2xl shadow-2xl border-4 border-[#112240] relative z-10 max-w-full inline-block overflow-x-auto scrollbar-thin scrollbar-thumb-[#1F2937] scrollbar-track-[#0A192F]">
-      {/* Header with faux window buttons */}
-      <div className="flex items-center px-4 py-2 bg-[#112240] rounded-t-2xl">
-        <span className="w-3 h-3 bg-red-500 rounded-full mr-2" />
-        <span className="w-3 h-3 bg-yellow-500 rounded-full mr-2" />
-        <span className="w-3 h-3 bg-green-500 rounded-full" />
+      {/* Header mit Matrix-farbigen Buttons */}
+      <div className="flex items-center px-4 py-2 bg-[#112240] rounded-t-2xl text-[#60A5FA] font-mono">
+        <span className="text-sm">{">_ root@simon:~$"}</span>
+        <span className="ml-auto text-xs">[ CODE WINDOW ]</span>
       </div>
+
       {/* Code content */}
       <div className="p-6 text-sm font-mono whitespace-pre-wrap w-full max-h-[70vh] overflow-y-auto md:overflow-visible bg-[#0A192F] rounded-b-2xl text-left scrollbar-thin scrollbar-thumb-[#1F2937] scrollbar-track-[#0A192F]">
         <pre className="text-green-300 block w-full break-words leading-relaxed">

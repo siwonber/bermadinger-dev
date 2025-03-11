@@ -15,14 +15,12 @@ function Navbar() {
     <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 
       ${menuOpen ? "bg-black/80" : scrolling ? "bg-black/50 backdrop-blur-lg" : "bg-transparent"}`}
     >
-      <div className="w-full flex items-center justify-between py-3 px-8">
-        {/* Logo */}
+      <div className="container mx-auto flex items-center justify-between py-3 px-8">
         <h1 className="text-3xl font-bold text-white">DevBer</h1>
 
         {/* Desktop Navigation */}
         <ul className="hidden md:flex space-x-10 text-white text-lg">
           <li><a href="/" className="hover:text-primary transition">Home</a></li>
-          <li><a href="/about" className="hover:text-primary transition">About</a></li>
           <li><a href="/projects" className="hover:text-primary transition">Projects</a></li>
         </ul>
 
@@ -57,7 +55,6 @@ function Navbar() {
         transition={{ duration: 0.3, ease: "easeOut" }}
       >
         <a href="/" className="text-white text-lg hover:text-primary transition py-3 px-6" onClick={() => setMenuOpen(false)}>Home</a>
-        <a href="/about" className="text-white text-lg hover:text-primary transition py-3 px-6" onClick={() => setMenuOpen(false)}>About</a>
         <a href="/projects" className="text-white text-lg hover:text-primary transition py-3 px-6" onClick={() => setMenuOpen(false)}>Projects</a>
       </motion.div>
     </nav>
