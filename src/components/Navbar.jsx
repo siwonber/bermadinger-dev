@@ -2,6 +2,13 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FiMenu, FiX } from "react-icons/fi";
 import { handleScroll } from "../javascript/Navbar";
+import ColorBlindButton from "../components/ColorBlindButton";
+import resolveConfig from "tailwindcss/resolveConfig";
+import tailwindConfig from "../../tailwind.config";
+
+
+const fullConfig = resolveConfig(tailwindConfig);
+const primaryColor = fullConfig.theme.colors.primaryColor;
 
 function Navbar() {
   const [scrolling, setScrolling] = useState(false);
@@ -20,15 +27,16 @@ function Navbar() {
 
         {/* Desktop Navigation */}
         <ul className="hidden md:flex space-x-10 text-white text-lg">
-          <li><a href="/" className="hover:text-primary transition">Home</a></li>
-          <li><a href="/projects" className="hover:text-primary transition">Projects</a></li>
+          <li><a href="/" className="hover:text-primaryColor transition">Home</a></li>
+          <li><a href="/projects" className="hover:text-primaryColor transition">Projects</a></li>
+          <li><ColorBlindButton /></li>
         </ul>
 
         {/* Mobile Menu Button */}
         <motion.button
           onClick={() => setMenuOpen(!menuOpen)}
           className="md:hidden text-white focus:outline-none z-50 relative"
-          animate={{ rotate: menuOpen ? 180 : 0, color: menuOpen ? "rgb(177,18,38)" : "#ffffff" }}
+          animate={{ rotate: menuOpen ? 180 : 0, color: menuOpen ? primaryColor : "#ffffff" }}
           transition={{ duration: 0.2 }}
         >
           {menuOpen ? <FiX size={34} /> : <FiMenu size={34} />}
@@ -48,15 +56,20 @@ function Navbar() {
       )} */}
 
       {/* Mobile Menü */}
-      <motion.div
-        className="fixed top-0 right-0 h-screen w-[70%] md:w-[50%] lg:w-[30%] bg-dark/95 flex flex-col items-end p-8 pt-24 text-right shadow-lg"
-        initial={{ x: "100%" }}
-        animate={{ x: menuOpen ? "0%" : "100%" }}
-        transition={{ duration: 0.3, ease: "easeOut" }}
-      >
-        <a href="/" className="text-white text-lg hover:text-primary transition py-3 px-6" onClick={() => setMenuOpen(false)}>Home</a>
-        <a href="/projects" className="text-white text-lg hover:text-primary transition py-3 px-6" onClick={() => setMenuOpen(false)}>Projects</a>
-      </motion.div>
+        <motion.div
+          className="fixed top-0 right-0 h-screen w-[70%] md:w-[50%] lg:w-[30%] bg-dark/95 flex flex-col items-end p-8 pt-24 text-right shadow-lg"
+          initial={{ x: "100%" }}
+          animate={{ x: menuOpen ? "0%" : "100%" }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
+        >
+          <a href="/" className="text-white text-lg hover:text-primaryColor transition py-3 px-6" onClick={() => setMenuOpen(false)}>Home</a>
+          <a href="/projects" className="text-white text-lg hover:text-primaryColor transition py-3 px-6" onClick={() => setMenuOpen(false)}>Projects</a>
+
+          {/* Colorblind Button*/}
+          <div className="mt-auto pb-8 w-full flex justify-center">
+          <ColorBlindButton />
+        </div>
+        </motion.div>
     </nav>
   );
 }

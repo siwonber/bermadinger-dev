@@ -1,9 +1,8 @@
 import { motion } from "framer-motion";
-import ChangingPhrase from "../javascript/ChangingPhrase.jsx";
+import ChangingPhrase from "../javascript/ChangingPhrase";
 import CodeWindow from "../components/CodeWindow";
 import MatrixBackground from "../components/MatrixBackground";
 import Experience from "../components/Experience";
-
 
 function Home() {
   return (
@@ -32,7 +31,7 @@ function Home() {
       </motion.h1>
       
       <motion.p
-        className="text-2xl font-semibold text-primary mt-2"
+        className="text-2xl font-semibold text-primaryColor mt-2 "
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
@@ -41,7 +40,7 @@ function Home() {
       </motion.p>
       
       <motion.p
-        className="text-lg text-gray-400 mt-4 max-w-2xl"
+        className="text-lg text-gray-400 mt-4 max-w-2xl "
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
@@ -53,7 +52,7 @@ function Home() {
       <div className="mt-6 flex space-x-4">
         <motion.a
           href="/pdf/Lebenslauf_Simon_Bermadinger.pdf"
-          className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition flex items-center"
+          className="px-6 py-3 bg-secondaryColor text-white rounded-lg hover:bg-secondary-dark transition flex items-center"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3 }} 
@@ -62,7 +61,7 @@ function Home() {
         </motion.a>
         <motion.a
           href="mailto:office.code.bermadinger@gmail.com"
-          className="px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary-dark transition flex items-center"
+          className="px-6 py-3 bg-primaryColor text-white rounded-lg hover:bg-primary-dark transition flex items-center"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3 }} 

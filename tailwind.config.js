@@ -4,8 +4,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#b11226", // Rot (Hauptfarbe)
-        "primary-dark": "#8f0e1f", // Dunkles Rot
+        primaryColor: "var(--primary-color)", // Rot
+        "primary-dark": "var(--primary-dark-color)", // Rot dunkel
+        secondaryColor: "var(--secondary-color)", // Blau
+        "secondary-dark": "var(--secondary-dark-color)", // Blau dunkel
+        thirdColor: "var(--third-color)", // Grün
         dark: "#353535",    // Dunkelgrau (Menü-Hintergrund)
         black: "#000000",   // Schwarz
         white: "#ffffff",   // Weiß 
