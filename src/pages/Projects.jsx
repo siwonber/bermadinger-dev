@@ -1,40 +1,59 @@
-import { motion } from "framer-motion";
+import React from "react";
 
 const projects = [
-  { title: "Project One", img: "/assets/project1.jpg" },
-  { title: "Project Two", img: "/assets/project2.jpg" },
-  { title: "Project Three", img: "/assets/project3.jpg" },
+  {
+    name: "Projekt Alpha",
+    details:
+      "Ein leistungsstarkes Web-Tool zur Analyse von Datenströmen in Echtzeit.",
+    technologies: ["React", "Tailwind", "Node.js"],
+    link: "https://projekt-alpha.com",
+  },
+  {
+    name: "Projekt Beta",
+    details:
+      "Ein minimalistischer Code-Editor mit Live-Preview für Web-Entwicklung.",
+    technologies: ["Electron", "TypeScript", "Monaco Editor"],
+    link: "https://projekt-beta.com",
+  },
+  {
+    name: "Projekt Gamma",
+    details: "Eine KI-gestützte Suchmaschine für technische Dokumentationen.",
+    technologies: ["Python", "Flask", "Elasticsearch"],
+    link: "https://projekt-gamma.com",
+  },
 ];
 
-function Projects() {
+const Projects = () => {
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center text-center px-6">
-      <motion.h2
-        className="text-5xl font-bold text-white tracking-tight"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-      >
-        School Projects
-      </motion.h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mt-10">
+    <div className="min-h-screen text-white py-12 px-6 font-mono">
+      <h2 className="text-4xl font-bold text-primaryColor mb-8 bg-black max-w-3xl mx-auto">📂 Projekte</h2>
+      <div className="max-w-3xl mx-auto bg-black">
         {projects.map((project, index) => (
-          <motion.div
-            key={index}
-            className="relative overflow-hidden rounded-lg bg-gray-800"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: index * 0.2 }}
-          >
-            <img src={project.img} alt={project.title} className="w-full h-60 object-cover opacity-80 hover:opacity-100 transition duration-300" />
-            <div className="absolute bottom-0 left-0 right-0 p-4 bg-black bg-opacity-50 text-white text-lg font-semibold">
-              {project.title}
+          <div key={index} className="mb-8">
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primaryColor text-2xl hover:underline"
+            >
+              {project.name}
+            </a>
+            <p className="text-gray-400 text-sm mt-1">{project.details}</p>
+            <div className="flex flex-wrap gap-2 mt-2">
+              {project.technologies.map((tech, idx) => (
+                <span
+                  key={idx}
+                  className="text-xs px-2 py-1 border border-primaryColor text-primaryColor rounded"
+                >
+                  {tech}
+                </span>
+              ))}
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
-    </section>
+    </div>
   );
-}
+};
 
 export default Projects;

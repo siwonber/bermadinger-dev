@@ -3,6 +3,9 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        mono: ["Roboto Mono", "monospace"], 
+      },
       colors: {
         primaryColor: "var(--primary-color)", // Rot
         "primary-dark": "var(--primary-dark-color)", // Rot dunkel

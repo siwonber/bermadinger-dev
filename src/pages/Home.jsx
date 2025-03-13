@@ -1,13 +1,11 @@
 import { motion } from "framer-motion";
 import ChangingPhrase from "../javascript/ChangingPhrase";
 import CodeWindow from "../components/CodeWindow";
-import MatrixBackground from "../components/MatrixBackground";
 import Experience from "../components/Experience";
 
 function Home() {
   return (
-    <MatrixBackground>
-    <section className="min-h-screen flex flex-col items-center justify-start text-center px-6 pt-32">
+    <section className="min-h-screen flex flex-col items-center justify-start text-center px-0 pt-32 m-4 sm:m-0">
       <motion.div
         className="w-72 h-72 rounded-full overflow-hidden shadow-xl mb-6 flex-shrink-0 aspect-square"
         initial={{ opacity: 0, scale: 0.8 }}
@@ -77,7 +75,6 @@ function Home() {
           <Experience />
       </div>
     </section>
-      </MatrixBackground>
   );
 }
 

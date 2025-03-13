@@ -1,75 +1,86 @@
 import { motion } from "framer-motion";
-import { Plug, Hammer, Ambulance, Wrench, Layers, Code } from "lucide-react";
+import { Plug, Ambulance, Code } from "lucide-react";
 
 const experiences = [
   {
-    title: "Electrician",
-    company: "EAV GmbH",
-    description: "Accomplished my apprenticeship.",
+    title: "BSc MMT-Web Studies",
+    company: "FH Salzburg",
+    description: "Specialized in web development, design, and programming.",
+    icon: <Code size={20} className="text-primaryColor" />,
+  },
+  {
+    title: "Electrician - Medical Tech",
+    company: "TECAN Salzburg",
+    description: "Worked on medical devices for data analysis.",
     icon: <Plug size={20} className="text-primaryColor" />,
   },
   {
-    title: "Rescue Paramedic",
+    title: "Electrician - First Job",
+    company: "STAM PERSONAL",
+    description: "Started working as a certified technician.",
+    icon: <Plug size={20} className="text-primaryColor" />,
+  },
+  {
+    title: "Rescue Paramedic - Civil Service",
     company: "Red Cross Salzburg",
-    description: "Completed my civil service.",
+    description: "Served as a paramedic during my civil service.",
     icon: <Ambulance size={20} className="text-primaryColor" />,
   },
   {
     title: "Electrician",
-    company: "STAM PERSONAL",
-    description: "First company as a finished technician.",
+    company: "EAV GmbH",
+    description: "Completed my electrician apprenticeship.",
     icon: <Plug size={20} className="text-primaryColor" />,
-  },
-  {
-    title: "Electrician",
-    company: "TECAN Salzburg",
-    description: "Had the opportunity to work on medical devices for data analysis.",
-    icon: <Plug size={20} className="text-primaryColor" />,
-  },
-  {
-    title: "MMT-Web BSc Studies",
-    company: "FH Salzburg",
-    description: "Specialized in web development, design principles, and programming techniques.",
-    icon: <Code size={20} className="text-primaryColor" />,
   },
 ];
 
 export default function Experience() {
   return (
     <div className="relative w-full min-h-screen flex flex-col items-center justify-center py-20">
-      <h2 className="text-4xl font-bold mb-12 text-center text-white">My Experience</h2>
+      <h2 className="text-4xl font-bold mb-12 text-center text-white">Experience</h2>
 
-      {/* Timeline */}
-      <div className="relative w-full max-w-5xl">
-        {/* Middle Line */}
+      <div className="relative w-full max-w-4xl">
+        {/* Vertical Line */}
         <div className="absolute left-1/2 transform -translate-x-1/2 w-[3px] h-full bg-gray-700"></div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          {experiences.map((exp, index) => (
-            <motion.div
-            key={index}
-            className={`relative flex p-6 rounded-lg bg-black/70 border border-gray-700 shadow-lg backdrop-blur-md ${
-              index % 2 === 0 
-                ? "md:flex-row text-right pr-6 mr-6" 
-                : "md:flex-row-reverse text-left pl-6 ml-6"
-              }`}
+        <div className="flex flex-col space-y-10 relative">
+          {experiences.map((exp, index) => {
+            const isLeft = index % 2 === 0;
+
+            return (
+              <motion.div
+                key={index}
+                className={`relative flex items-center w-full ${
+                  isLeft ? "justify-start pr-10" : "justify-end pl-10"
+                }`}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
               >
-              {/* Icon */}
-              <div className={`absolute ${index % 2 === 0 ? "top-4 left-4" : "top-4 right-4"} bg-black p-3 rounded-full border border-primaryColor flex items-center justify-center w-12 h-12`}>
-                {exp.icon}
-              </div>
+                {/* Timeline Marker */}
+                <div className="absolute left-1/2 transform -translate-x-1/2 bg-primaryColor w-5 h-5 rounded-full border-4 border-black"></div>
 
-              {/* Text */}
-              <div className={`w-full max-w-md mt-8 ${index % 2 === 0 ? "ml-6 pl-6" : "mr-6 pr-6"}`}>
-                <h3 className="text-xl font-semibold text-white">{exp.title}</h3>
-                <p className="text-sm text-primaryColor font-medium mt-2">{exp.company}</p>
-                <p className="text-gray-400 text-sm mt-2">{exp.description}</p>
-              </div>
-            </motion.div>
-          ))}
+                {/* Card mit Icon innerhalb */}
+                <div
+                  className={`w-full max-w-md bg-black/70 border border-gray-700 shadow-lg backdrop-blur-md p-6 rounded-lg flex ${
+                    isLeft ? "flex-row text-right sm:-ml-5 ml-0" : "flex-row-reverse text-left sm:-mr-5 mr-0"
+                  } items-center`}
+                >
+                  {/* Icon innerhalb der Fahne */}
+                  <div className="w-14 h-14 flex items-center justify-center bg-black p-3 rounded-full border border-primaryColor shadow-lg">
+                    {exp.icon}
+                  </div>
+
+                  {/* Text-Content */}
+                  <div className="flex-1">
+                    <h3 className="text-xl font-semibold text-white">{exp.title}</h3>
+                    <p className="text-sm text-primaryColor font-medium mt-2">{exp.company}</p>
+                    <p className="text-gray-400 text-sm mt-2">{exp.description}</p>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </div>
