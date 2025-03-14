@@ -36,7 +36,7 @@ const experiences = [
 
 export default function Experience() {
   return (
-    <div className="relative w-full min-h-screen flex flex-col items-center justify-center py-20">
+    <div id="experience" className="relative w-full h-auto flex flex-col items-center">
       <h2 className="text-4xl font-bold mb-12 text-center text-white">Experience</h2>
 
       <div className="relative w-full max-w-4xl">

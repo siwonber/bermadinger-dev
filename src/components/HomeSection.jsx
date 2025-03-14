@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
 import ChangingPhrase from "../javascript/ChangingPhrase";
-import CodeWindow from "../components/CodeWindow";
-import Experience from "../components/Experience";
+import CodeWindow from "./CodeWindow"; // Angepasst, weil es jetzt in components ist
+import Experience from "./Experience";
 
-function Home() {
+const HomeSection = () => {
   return (
-    <section className="min-h-screen flex flex-col items-center justify-start text-center px-0 pt-32 m-4 sm:m-0">
+    <section id="home" className="h-auto flex flex-col items-center justify-start text-center px-0 pt-20 pb-0 mb-0">
       <motion.div
         className="w-72 h-72 rounded-full overflow-hidden shadow-xl mb-6 flex-shrink-0 aspect-square"
         initial={{ opacity: 0, scale: 0.8 }}
@@ -68,14 +68,8 @@ function Home() {
         </motion.a>
       </div>
       
-      <div className="mt-12 w-full flex justify-center">
-        <CodeWindow />
-      </div>
-      <div className="mt-20 w-full flex justify-center">
-          <Experience />
-      </div>
     </section>
   );
-}
+};
 
-export default Home;
+export default HomeSection;

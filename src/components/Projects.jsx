@@ -1,4 +1,5 @@
 import React from "react";
+import { FolderOpen } from "lucide-react";
 
 const projects = [
   {
@@ -25,8 +26,11 @@ const projects = [
 
 const Projects = () => {
   return (
-    <div className="min-h-screen text-white py-12 px-6 font-mono">
-      <h2 className="text-4xl font-bold text-primaryColor mb-8 bg-black max-w-3xl mx-auto">📂 Projekte</h2>
+    <div id="projects" className="h-auto text-white py-12 px-6 font-mono">
+      <h2 className="text-4xl font-bold text-white mb-8 bg-black max-w-3xl mx-auto flex items-center justify-center gap-2">
+        <FolderOpen size={36} className="text-primaryColor" />
+        Projekte
+      </h2>
       <div className="max-w-3xl mx-auto bg-black">
         {projects.map((project, index) => (
           <div key={index} className="mb-8">

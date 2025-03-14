@@ -1,27 +1,40 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import '@fontsource/roboto-mono';
 import Navbar from "./components/Navbar";
-import Home from "./pages/Home";
-import Projects from "./pages/Projects";
 import Footer from "./components/Footer";
 import { ThemeProvider } from "./javascript/ThemeContext";
 import MatrixBackground from "./components/MatrixBackground";
-import '@fontsource/roboto-mono';
+import Projects from "./components/Projects"; // Von pages nach components verschoben
+import CodeWindow from "./components/CodeWindow";
+import Experience from "./components/Experience";
+import HomeSection from "./components/HomeSection";
+
 
 function App() {
   return (
-    <ThemeProvider> {/* ThemeProvider um die gesamte App */}
+    <ThemeProvider> {/* ThemeProvider für Theme-Kontext */}
       <MatrixBackground>
-      <Router>
-        <div className="bg-background text-textColor"> {/* Farben über CSS-Variablen */}
           <Navbar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/projects" element={<Projects />} />
-          </Routes>
+      <div className="bg-background text-textColor px-4 sm:px-0">
+          
+          {/* Home Sektion */}
+          <HomeSection />
+
+          <div className="section-spacing">
+            <CodeWindow />
+          </div>
+
+          <div className="section-spacing">
+            <Experience />
+          </div>
+
+          <div className="section-spacing">
+            <Projects />
+          </div>
+
+
           <Footer />
         </div>
-      </Router>
-    </MatrixBackground>
+      </MatrixBackground>
     </ThemeProvider>
   );
 }

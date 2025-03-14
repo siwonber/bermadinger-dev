@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FiMenu, FiX } from "react-icons/fi";
+import { Link } from "react-scroll"; // Import für smooth scrolling
 import { handleScroll } from "../javascript/Navbar";
 import ColorBlindButton from "../components/ColorBlindButton";
 import resolveConfig from "tailwindcss/resolveConfig";
 import tailwindConfig from "../../tailwind.config";
-
 
 const fullConfig = resolveConfig(tailwindConfig);
 const primaryColor = fullConfig.theme.colors.primaryColor;
@@ -23,13 +23,38 @@ function Navbar() {
       ${menuOpen ? "bg-black/80" : scrolling ? "bg-black/50 backdrop-blur-lg" : "bg-transparent"}`}
     >
       <div className="container mx-auto flex items-center justify-between py-3 px-8">
-        <h1 className="text-3xl font-bold text-white">DevBer</h1>
+        
+        {/* DevBer als Scroll-Link */}
+        <Link 
+          to="home" 
+          smooth={true} 
+          duration={500} 
+          className="text-3xl font-bold text-white cursor-pointer"
+          onClick={() => setMenuOpen(false)} // Falls im mobilen Menü geöffnet
+        >
+          DevBer
+        </Link>
 
         {/* Desktop Navigation */}
         <ul className="hidden md:flex space-x-10 text-white text-lg">
-          <li><a href="/" className="hover:text-primaryColor transition">Home</a></li>
-          <li><a href="/projects" className="hover:text-primaryColor transition">Projects</a></li>
-          <li><ColorBlindButton /></li>
+          <li>
+            <Link to="home" smooth={true} duration={500} className="hover:text-primaryColor transition cursor-pointer">
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link to="experience" smooth={true} duration={500} offset={-80} className="hover:text-primaryColor transition cursor-pointer">
+              Experience
+            </Link>
+          </li>
+          <li>
+            <Link to="projects" smooth={true} duration={500} className="hover:text-primaryColor transition cursor-pointer">
+              Projects
+            </Link>
+          </li>
+          <li>
+            <ColorBlindButton />
+          </li>
         </ul>
 
         {/* Mobile Menu Button */}
@@ -43,33 +68,29 @@ function Navbar() {
         </motion.button>
       </div>
 
-      {/* Mobile Fullscreen Overlay
-      {menuOpen && (
-        <motion.div
-          className="fixed inset-0 bg-black/70 backdrop-blur-lg"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.3 }}
-          onClick={() => setMenuOpen(false)}
-        />
-      )} */}
-
       {/* Mobile Menü */}
-        <motion.div
-          className="fixed top-0 right-0 h-screen w-[70%] md:w-[50%] lg:w-[30%] bg-dark/95 flex flex-col items-end p-8 pt-24 text-right shadow-lg"
-          initial={{ x: "100%" }}
-          animate={{ x: menuOpen ? "0%" : "100%" }}
-          transition={{ duration: 0.3, ease: "easeOut" }}
-        >
-          <a href="/" className="text-white text-lg hover:text-primaryColor transition py-3 px-6" onClick={() => setMenuOpen(false)}>Home</a>
-          <a href="/projects" className="text-white text-lg hover:text-primaryColor transition py-3 px-6" onClick={() => setMenuOpen(false)}>Projects</a>
+      <motion.div
+        className={`fixed top-0 right-0 h-screen w-[70%] md:w-[50%] lg:w-[30%] bg-dark/95 flex flex-col items-end p-8 pt-24 text-right shadow-lg 
+        ${menuOpen ? "translate-x-0" : "translate-x-full"}`}
+        initial={{ x: "100%" }}
+        animate={{ x: menuOpen ? "0%" : "100%" }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
+      >
+        <Link to="home" smooth={true} duration={500} className="text-white text-lg hover:text-primaryColor transition py-3 px-6 cursor-pointer" onClick={() => setMenuOpen(false)}>
+          Home
+        </Link>
+        <Link to="experience" smooth={true} duration={500} offset={-80} className="text-white text-lg hover:text-primaryColor transition py-3 px-6 cursor-pointer" onClick={() => setMenuOpen(false)}>
+          Experience
+        </Link>
+        <Link to="projects" smooth={true} duration={500} className="text-white text-lg hover:text-primaryColor transition py-3 px-6 cursor-pointer" onClick={() => setMenuOpen(false)}>
+          Projects
+        </Link>
 
-          {/* Colorblind Button*/}
-          <div className="mt-auto pb-8 w-full flex justify-center">
+        {/* Colorblind Button */}
+        <div className="mt-auto pb-8 w-full flex justify-center">
           <ColorBlindButton />
         </div>
-        </motion.div>
+      </motion.div>
     </nav>
   );
 }
