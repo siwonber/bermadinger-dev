@@ -40,54 +40,52 @@ export default function MatrixBackground({ children }) {
     // Zeichen-Lebensdauer-Tracking
     const symbolData = {}; // Speichert Zeichen-Infos für Fade-Out
 
+    function getPrimaryColor() {
+      return getComputedStyle(document.documentElement).getPropertyValue("--primary-color").trim() || "#b11226";
+    }
+    
     function drawMatrix() {
-      ctx.fillStyle = "rgba(0, 0, 0, 0.1)"; // Leicht dunkler, damit alte Zeichen verschwinden
+      ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      // 📌 Dynamische Farbe holen
-      const primaryColor = getComputedStyle(document.documentElement).getPropertyValue("--primary-color") || "#b11226";
-
-      // **Font setzen**
+    
+      const primaryColor = getPrimaryColor(); // ✅ Always get the latest color
+      
+      const r = parseInt(primaryColor.slice(1, 3), 16);
+      const g = parseInt(primaryColor.slice(3, 5), 16);
+      const b = parseInt(primaryColor.slice(5, 7), 16);
+    
       ctx.font = `bold ${fontSize}px monospace`;
-
+    
       for (let i = 0; i < drops.length; i++) {
         let x = i * columnWidth;
         let y = drops[i] * 20;
-
-        // **Häufigkeit der Zeichen erhöhen!**
+    
         if (!symbolData[`${x},${y}`]) {
           let newText = Math.random() > 0.98 && Math.random() > 0.95
             ? specialMessages[Math.floor(Math.random() * specialMessages.length)]
             : String.fromCharCode(0x30a0 + Math.random() * 96);
-
-          symbolData[`${x},${y}`] = { text: newText, alpha: 1 }; // Neu mit voller Opazität
+    
+          symbolData[`${x},${y}`] = { text: newText, alpha: 1 };
         }
-
+    
         let symbol = symbolData[`${x},${y}`];
-
-        // **RGB für dynamische Farbe**
-        const r = parseInt(primaryColor.slice(1, 3), 16);
-        const g = parseInt(primaryColor.slice(3, 5), 16);
-        const b = parseInt(primaryColor.slice(5, 7), 16);
-
-        ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${symbol.alpha})`;
+        ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${symbol.alpha})`; // ✅ Uses the updated color
         ctx.fillText(symbol.text, x, y);
-
-        // **Zeichen bleiben länger sichtbar (langsameres Verblassen)**
+    
         if (Math.random() > 0.995) {
-          symbol.alpha -= 0.02; // Statt 0.05 → Zeichen bleiben länger sichtbar
+          symbol.alpha -= 0.02;
           if (symbol.alpha <= 0) {
-            delete symbolData[`${x},${y}`]; // Zeichen entfernen
+            delete symbolData[`${x},${y}`];
           }
         }
-
-        // **Spaltenbewegung bleibt gleich**
+    
         if (y > canvas.height / dpr && Math.random() > 0.999) {
-          drops[i] = 0; // Reset
+          drops[i] = 0;
         }
-        drops[i] += 0.4; // Geschwindigkeit bleibt gleich
+        drops[i] += 0.4;
       }
     }
+    
 
     const interval = setInterval(drawMatrix, 100);
 
@@ -98,7 +96,7 @@ export default function MatrixBackground({ children }) {
 
     observer.observe(document.documentElement, {
       attributes: true,
-      attributeFilter: ["style"],
+      attributeFilter: ["style", "class"],
     });
 
     return () => {

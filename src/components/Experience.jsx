@@ -3,25 +3,25 @@ import { Plug, Ambulance, Code } from "lucide-react";
 
 const experiences = [
   {
-    title: "BSc MMT-Web Studies",
+    title: "BSc MMT-Web",
     company: "FH Salzburg",
-    description: "Specialized in web development, design, and programming.",
+    description: "Started studying web development, design, and programming.",
     icon: <Code size={20} className="text-primaryColor" />,
   },
   {
-    title: "Electrician - Medical Tech",
+    title: "Medical Tech",
     company: "TECAN Salzburg",
     description: "Worked on medical devices for data analysis.",
     icon: <Plug size={20} className="text-primaryColor" />,
   },
   {
-    title: "Electrician - First Job",
+    title: "Electrician",
     company: "STAM PERSONAL",
-    description: "Started working as a certified technician.",
+    description: "Started working as a certified electrician.",
     icon: <Plug size={20} className="text-primaryColor" />,
   },
   {
-    title: "Rescue Paramedic - Civil Service",
+    title: "Civil Service",
     company: "Red Cross Salzburg",
     description: "Served as a paramedic during my civil service.",
     icon: <Ambulance size={20} className="text-primaryColor" />,
@@ -29,7 +29,7 @@ const experiences = [
   {
     title: "Electrician",
     company: "EAV GmbH",
-    description: "Completed my electrician apprenticeship.",
+    description: "Started my electrician apprenticeship.",
     icon: <Plug size={20} className="text-primaryColor" />,
   },
 ];

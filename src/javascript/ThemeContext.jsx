@@ -3,9 +3,51 @@ import { createContext, useContext, useState, useEffect } from "react";
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-  const [isColorblind, setIsColorblind] = useState(
-    localStorage.getItem("colorblindMode") === "true"
-  );
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    return localStorage.getItem("darkMode") === "true";
+  });
+
+  const [isColorblind, setIsColorblind] = useState(() => {
+    return localStorage.getItem("colorblindMode") === "true";
+  });
+
+  const toggleDarkMode = () => {
+    setIsDarkMode((prevMode) => {
+      const newValue = !prevMode;
+      localStorage.setItem("darkMode", newValue);
+
+      if (newValue) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+
+      return newValue;
+    });
+  };
+
+  const toggleColorblindMode = () => {
+    setIsColorblind((prevMode) => {
+      const newValue = !prevMode;
+      localStorage.setItem("colorblindMode", newValue);
+
+      if (newValue) {
+        document.documentElement.classList.add("colorblind");
+      } else {
+        document.documentElement.classList.remove("colorblind");
+      }
+
+      return newValue;
+    });
+  };
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [isDarkMode]);
 
   useEffect(() => {
     if (isColorblind) {
@@ -13,18 +55,22 @@ export const ThemeProvider = ({ children }) => {
     } else {
       document.documentElement.classList.remove("colorblind");
     }
-    localStorage.setItem("colorblindMode", isColorblind);
   }, [isColorblind]);
 
-  const toggleTheme = () => {
-    setIsColorblind((prev) => !prev);
-  };
-
   return (
-    <ThemeContext.Provider value={{ isColorblind, toggleTheme }}>
+    <ThemeContext.Provider
+      value={{
+        isDarkMode,
+        toggleDarkMode,
+        isColorblind,
+        toggleColorblindMode,
+      }}
+    >
       {children}
     </ThemeContext.Provider>
   );
 };
 
-export const useTheme = () => useContext(ThemeContext);
+export const useTheme = () => {
+  return useContext(ThemeContext);
+};

@@ -1,7 +1,7 @@
 import '@fontsource/roboto-mono';
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import { ThemeProvider } from "./javascript/ThemeContext";
+import { ThemeProvider } from "./javascript/ThemeContext.jsx";
 import MatrixBackground from "./components/MatrixBackground";
 import Projects from "./components/Projects"; // Von pages nach components verschoben
 import CodeWindow from "./components/CodeWindow";

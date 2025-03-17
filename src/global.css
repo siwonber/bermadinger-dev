@@ -24,13 +24,25 @@
     --secondary-color: #3C7DC4; /* Blau */
     --secondary-dark-color: #2F629A; /* Dunkleres Blau */
     --third-color: #6A9955; /* Grün */
+    --bg-color: #1F1F1F; /* Dunkles Hintergrund */
+    --text-color: #ffffff; /* Weißer Text */
   }
   
+  /* Light Mode */
+  .light {
+    --primary-color: #D32F2F; /* Hellrot */
+    --secondary-color: #1976D2; /* Hellblau */
+    --third-color: #388E3C; /* Hellgrün */
+    --bg-color: #ffffff; /* Helles Hintergrund */
+    --text-color: #000000; /* Schwarzer Text */
+  }
+  
+  /* Colorblind Mode */
   .colorblind {
     --primary-color: #3C7DC4; /* Blau */
     --primary-dark-color: #2F629A; /* Dunkleres Blau */
-    --secondary-color: #C49717 ; /* Gelb */
-    --secondary-dark-color: #9E7A12  ; /* Dunkleres Gelb */
+    --secondary-color: #C49717; /* Gelb */
+    --secondary-dark-color: #9E7A12; /* Dunkleres Gelb */
     --third-color: #C49717; /* Grün */
   }
   .section-spacing {

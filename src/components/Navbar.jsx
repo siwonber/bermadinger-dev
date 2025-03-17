@@ -3,9 +3,10 @@ import { motion } from "framer-motion";
 import { FiMenu, FiX } from "react-icons/fi";
 import { Link } from "react-scroll"; // Import für smooth scrolling
 import { handleScroll } from "../javascript/Navbar";
-import ColorBlindButton from "../components/ColorBlindButton";
+import ColorBlindToggle from "./ColorBlindToggle";
 import resolveConfig from "tailwindcss/resolveConfig";
 import tailwindConfig from "../../tailwind.config";
+import ThemeToggle from "./ThemeToggle";
 
 const fullConfig = resolveConfig(tailwindConfig);
 const primaryColor = fullConfig.theme.colors.primaryColor;
@@ -53,7 +54,10 @@ function Navbar() {
             </Link>
           </li>
           <li>
-            <ColorBlindButton />
+            <ColorBlindToggle />
+          </li>
+          <li>
+            <ThemeToggle />
           </li>
         </ul>
 
@@ -85,10 +89,12 @@ function Navbar() {
         <Link to="projects" smooth={true} duration={500} className="text-white text-lg hover:text-primaryColor transition py-3 px-6 cursor-pointer" onClick={() => setMenuOpen(false)}>
           Projects
         </Link>
-
-        {/* Colorblind Button */}
-        <div className="mt-auto pb-8 w-full flex justify-center">
-          <ColorBlindButton />
+        
+        {/* Colorblind & Theme Toggle Buttons (now aligned at bottom with same width) */}
+        {/* Toggles at the bottom */}
+        <div className="mt-auto pb-8 w-full flex flex-col items-center space-y-4">
+          <ColorBlindToggle />
+          <ThemeToggle />
         </div>
       </motion.div>
     </nav>

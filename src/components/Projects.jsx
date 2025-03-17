@@ -3,21 +3,21 @@ import { FolderOpen } from "lucide-react";
 
 const projects = [
   {
-    name: "Projekt Alpha",
+    name: "Projekt Kaspal 1",
     details:
       "Ein leistungsstarkes Web-Tool zur Analyse von Datenströmen in Echtzeit.",
     technologies: ["React", "Tailwind", "Node.js"],
     link: "https://projekt-alpha.com",
   },
   {
-    name: "Projekt Beta",
+    name: "Projekt Kaspal 2",
     details:
       "Ein minimalistischer Code-Editor mit Live-Preview für Web-Entwicklung.",
     technologies: ["Electron", "TypeScript", "Monaco Editor"],
     link: "https://projekt-beta.com",
   },
   {
-    name: "Projekt Gamma",
+    name: "Projekt Kaspal 3",
     details: "Eine KI-gestützte Suchmaschine für technische Dokumentationen.",
     technologies: ["Python", "Flask", "Elasticsearch"],
     link: "https://projekt-gamma.com",
