@@ -8,6 +8,9 @@ export default {
         mono: ["Roboto Mono", "monospace"], 
       },
       colors: {
+        primaryTextColor: "var(--primary-text-color)",
+        primaryTextGray: "var(--primary-text-gray)",
+
         primaryColor: "var(--primary-color)",
         "primary-dark": "var(--primary-dark-color)",
         secondaryColor: "var(--secondary-color)",

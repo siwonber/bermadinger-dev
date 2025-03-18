@@ -15,13 +15,15 @@ export const ThemeProvider = ({ children }) => {
     setIsDarkMode((prevMode) => {
       const newValue = !prevMode;
       localStorage.setItem("darkMode", newValue);
-
+  
       if (newValue) {
-        document.documentElement.classList.add("dark");
-      } else {
+        document.documentElement.classList.add("light");
         document.documentElement.classList.remove("dark");
+      } else {
+        document.documentElement.classList.add("dark");
+        document.documentElement.classList.remove("light");
       }
-
+  
       return newValue;
     });
   };
@@ -43,9 +45,11 @@ export const ThemeProvider = ({ children }) => {
 
   useEffect(() => {
     if (isDarkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
+      document.documentElement.classList.add("light");
       document.documentElement.classList.remove("dark");
+    } else {
+      document.documentElement.classList.add("dark");
+      document.documentElement.classList.remove("light");
     }
   }, [isDarkMode]);
 

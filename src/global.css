@@ -19,6 +19,9 @@
   }
   
   :root {
+    --primary-text-color: #ffffff; /* Haupt Text FARBE */
+    --primary-text-grey: 	#9CA3AF; /* Grau für Text */
+    
     --primary-color: #b11226; /* Rot */
     --primary-dark-color: #8f0e1f; /* Dunkleres Rot */
     --secondary-color: #3C7DC4; /* Blau */
@@ -26,15 +29,45 @@
     --third-color: #6A9955; /* Grün */
     --bg-color: #1F1F1F; /* Dunkles Hintergrund */
     --text-color: #ffffff; /* Weißer Text */
+
+    --code-bg: #0A192F;
+    --code-header-bg: #112240;
+    --code-border: #112240;
+    --code-scrollbar-thumb: #1F2937;
+    --code-scrollbar-track: #0A192F;
+
+    --code-text-main: #FFFFFF;
+    --code-text-muted: #D1D5DB;
+    --code-keyword: #F87171; /* Rot */
+    --code-comment: #6EE7B7; /* Grün */
+
+    --code-text-normal: #D1D5DB; /* Hellgrau für Dark Mode */
   }
   
   /* Light Mode */
   .light {
+    --primary-text-color: #000000; /* Haupt Text FARBE */
+    --primary-text-grey: 	#000000; /* Grau für Text */
+
     --primary-color: #D32F2F; /* Hellrot */
     --secondary-color: #1976D2; /* Hellblau */
     --third-color: #388E3C; /* Hellgrün */
     --bg-color: #ffffff; /* Helles Hintergrund */
     --text-color: #000000; /* Schwarzer Text */
+
+    --code-bg: #F9FAFB;
+    --code-header-bg: #E5E7EB;
+    --code-border: #D1D5DB;
+    --code-scrollbar-thumb: #9CA3AF;
+    --code-scrollbar-track: #F3F4F6;
+    --code-text: #000000;
+
+    --code-text-main: #000000;
+    --code-text-muted: #374151;
+    --code-keyword: #D32F2F; /* Rot bleibt kräftig */
+    --code-comment: #388E3C; /* Grünton bleibt kräftig */
+
+    --code-text-normal: #1F2937; /* Dunkles Grau für Light Mode */
   }
   
   /* Colorblind Mode */

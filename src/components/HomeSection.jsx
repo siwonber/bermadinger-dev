@@ -20,7 +20,7 @@ const HomeSection = () => {
       </motion.div>
       
       <motion.h1
-        className="text-5xl font-bold text-white tracking-tight"
+        className="text-5xl font-bold text-primaryTextColor tracking-tight"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }} 
@@ -38,7 +38,7 @@ const HomeSection = () => {
       </motion.p>
       
       <motion.p
-        className="text-lg text-gray-400 mt-4 max-w-2xl "
+        className="text-lg text-primaryTextGray mt-4 max-w-2xl "
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}

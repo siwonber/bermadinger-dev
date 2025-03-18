@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-const ToggleSwitch = ({ label, isActive, onToggle, IconOn, IconOff, activeColor }) => {
+const ToggleSwitch = ({ label, isActive, onToggle, IconOn, IconOff, activeColor, textClass}) => {
   return (
     <div className="flex justify-between items-center w-full max-w-[250px] p-3">
       {/* Icon & Label - Now properly aligned */}

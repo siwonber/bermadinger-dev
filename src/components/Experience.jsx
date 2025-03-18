@@ -37,7 +37,7 @@ const experiences = [
 export default function Experience() {
   return (
     <div id="experience" className="relative w-full h-auto flex flex-col items-center">
-      <h2 className="text-4xl font-bold mb-12 text-center text-white">Experience</h2>
+      <h2 className="text-4xl font-bold mb-12 text-center text-primaryTextColor">Experience</h2>
 
       <div className="relative w-full max-w-4xl">
         {/* Vertical Line */}
@@ -75,7 +75,7 @@ export default function Experience() {
                   <div className="flex-1">
                     <h3 className="text-xl font-semibold text-white">{exp.title}</h3>
                     <p className="text-sm text-primaryColor font-medium mt-2">{exp.company}</p>
-                    <p className="text-gray-400 text-sm mt-2">{exp.description}</p>
+                    <p className="text-primaryTextGray text-sm mt-2">{exp.description}</p>
                   </div>
                 </div>
               </motion.div>

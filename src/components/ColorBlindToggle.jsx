@@ -13,6 +13,7 @@ const ColorBlindToggle = () => {
       IconOn={FaEye}
       IconOff={FaEyeSlash}
       activeColor="text-secondaryColor"
+      textClass="text-primaryTextColor"
     />
   );
 };

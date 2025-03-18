@@ -37,7 +37,7 @@ function Navbar() {
         </Link>
 
         {/* Desktop Navigation */}
-        <ul className="hidden md:flex space-x-10 text-white text-lg">
+        <ul className="hidden md:flex space-x-10 text-primaryTextColor text-lg">
           <li>
             <Link to="home" smooth={true} duration={500} className="hover:text-primaryColor transition cursor-pointer">
               Home
@@ -56,9 +56,9 @@ function Navbar() {
           <li>
             <ColorBlindToggle />
           </li>
-          <li>
+          {/* <li>
             <ThemeToggle />
-          </li>
+          </li> */}
         </ul>
 
         {/* Mobile Menu Button */}
