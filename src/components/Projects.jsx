@@ -1,5 +1,6 @@
 import React from "react";
-import { FolderOpen } from "lucide-react";
+import ProjectCard from "./ProjectCard"; 
+import { FolderOpen } from "lucide-react"; 
 
 const schoolProjects = [
   {
@@ -33,39 +34,8 @@ const otherProjects = [
   },
 ];
 
-const ProjectCard = ({ project }) => (
-  <div className="bg-black p-6 mb-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between relative">
-    {/* Icon */}
-    <div className="absolute top-4 right-4 text-primaryColor">
-      <FolderOpen size={24} className="hover:rotate-12 transition-transform duration-300" />
-    </div>
-
-    <div>
-      <a
-        href={project.link}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-primaryColor text-2xl font-semibold hover:underline"
-      >
-        {project.name}
-      </a>
-      <p className="text-gray-400 text-sm mt-3">{project.details}</p>
-    </div>
-    <div className="flex flex-wrap gap-2 mt-4">
-      {project.technologies.map((tech, idx) => (
-        <span
-          key={idx}
-          className="text-xs px-3 py-1 border border-primaryColor text-primaryColor rounded-full"
-        >
-          {tech}
-        </span>
-      ))}
-    </div>
-  </div>
-);
-
-const SectionHeader = ({ title }) => (
-  <div className="w-full mb-6 bg-black border border-primaryColor py-2 px-4 rounded-md flex items-center justify-between">
+const SectionHeader = ({ title, center = false }) => (
+  <div className={`w-full mb-6 bg-black border border-primaryColor py-2 px-4 rounded-md flex items-center ${center ? "justify-center" : "justify-between"}`}>
     <span className="text-primaryColor text-sm uppercase tracking-widest font-semibold">{title}</span>
   </div>
 );
@@ -79,17 +49,15 @@ const Projects = () => {
 
       {/* Desktop Grid */}
       <div className="hidden sm:grid grid-cols-2 gap-8 max-w-6xl mx-auto">
-        {/* School Projects */}
         <div>
-          <SectionHeader title="School Projects" />
+          <SectionHeader title="School Projects" center />
           {schoolProjects.map((project, index) => (
             <ProjectCard key={index} project={project} />
           ))}
         </div>
 
-        {/* Other Projects */}
         <div>
-          <SectionHeader title="Projects" />
+          <SectionHeader title="Projects" center />
           {otherProjects.map((project, index) => (
             <ProjectCard key={index} project={project} />
           ))}

@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { FiMenu, FiX } from "react-icons/fi";
-import { Link } from "react-scroll"; // Import für smooth scrolling
+import { Link } from "react-scroll"; 
 import { handleScroll } from "../javascript/Navbar";
 import ColorBlindToggle from "./ColorBlindToggle";
 import resolveConfig from "tailwindcss/resolveConfig";
@@ -12,26 +12,33 @@ const fullConfig = resolveConfig(tailwindConfig);
 const primaryColor = fullConfig.theme.colors.primaryColor;
 
 function Navbar() {
-  const [scrolling, setScrolling] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
   useEffect(() => {
-    handleScroll(menuOpen, setScrolling);
-  }, [menuOpen]);
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
-    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 
-      ${menuOpen ? "bg-black/80" : scrolling ? "bg-black/50 backdrop-blur-lg" : "bg-transparent"}`}
-    >
+    <nav className="fixed top-0 left-0 w-full z-50 bg-black transition-all duration-300">
       <div className="container mx-auto flex items-center justify-between py-3 px-8">
         
-        {/* DevBer als Scroll-Link */}
+        {/* Logo */}
         <Link 
           to="home" 
           smooth={true} 
           duration={500} 
           className="text-3xl font-bold text-white cursor-pointer"
-          onClick={() => setMenuOpen(false)} // Falls im mobilen Menü geöffnet
+          onClick={() => setMenuOpen(false)}
         >
           DevBer
         </Link>
@@ -53,12 +60,21 @@ function Navbar() {
               Projects
             </Link>
           </li>
-          <li>
-            <ColorBlindToggle />
+
+          {/* Settings Dropdown */}
+          <li className="relative" ref={dropdownRef}>
+            <button
+              onClick={() => setDropdownOpen(!dropdownOpen)}
+              className="cursor-pointer hover:text-primaryColor transition relative"
+            >
+              Settings
+            </button>
+            {dropdownOpen && (
+              <div className="absolute right-0 mt-3 px-6 py-3 shadow-lg bg-dark border border-gray-700 rounded-xl z-50 flex justify-center items-center w-max">
+                <ColorBlindToggle />
+              </div>
+            )}
           </li>
-          {/* <li>
-            <ThemeToggle />
-          </li> */}
         </ul>
 
         {/* Mobile Menu Button */}
@@ -90,11 +106,9 @@ function Navbar() {
           Projects
         </Link>
         
-        {/* Colorblind & Theme Toggle Buttons (now aligned at bottom with same width) */}
         {/* Toggles at the bottom */}
         <div className="mt-auto pb-8 w-full flex flex-col items-center space-y-4">
           <ColorBlindToggle />
-          <ThemeToggle />
         </div>
       </motion.div>
     </nav>
