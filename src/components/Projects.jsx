@@ -4,33 +4,27 @@ import { FolderOpen } from "lucide-react";
 
 const schoolProjects = [
   {
-    name: "Projekt Kaspal 1",
+    name: "MMP1 DJ Advertising",
     details:
-      "Ein leistungsstarkes Web-Tool zur Analyse von Datenströmen in Echtzeit.",
-    technologies: ["React", "Tailwind", "Node.js"],
-    link: "https://projekt-alpha.com",
+      "Promoting site for a local D&B DJ.",
+    technologies: ["PHP", "HTMl", "CSS"],
+    link: "https://users.multimediatechnology.at/~fhs50842/mmp1/",
   },
   {
-    name: "Projekt Kaspal 2",
+    name: "MMP2a Sphere",
     details:
-      "Ein minimalistischer Code-Editor mit Live-Preview für Web-Entwicklung.",
-    technologies: ["Electron", "TypeScript", "Monaco Editor"],
-    link: "https://projekt-beta.com",
-  },
-  {
-    name: "Projekt Kaspal 3",
-    details: "Eine KI-gestützte Suchmaschine für technische Dokumentationen.",
-    technologies: ["Python", "Flask", "Elasticsearch"],
-    link: "https://projekt-gamma.com",
+      "Manage your project design elements efficiently.",
+    technologies: ["Ruby on Rails", "TypeScript"],
+    link: "https://team-trasla.projects.multimediatechnology.at/",
   },
 ];
 
 const otherProjects = [
   {
-    name: "Side Project 1",
-    details: "Ein persönliches Projekt zur Automatisierung von Deployments.",
-    technologies: ["Go", "Docker", "CI/CD"],
-    link: "https://side-project.com",
+    name: "Memory Game",
+    details: "A simple memory game with a highscore.",
+    technologies: ["React Native", "Nativewind"],
+    // link: "https://side-project.com",
   },
 ];
 
