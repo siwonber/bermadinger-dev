@@ -13,9 +13,9 @@ function App() {
   return (
     <ThemeProvider> {/* ThemeProvider für Theme-Kontext */}
       <MatrixBackground>
-          <Navbar />
-      <div className="bg-background text-textColor px-4 sm:px-0">
-          
+        <Navbar />
+        <div className="bg-background text-textColor px-4 sm:px-0">
+
           {/* Home Sektion */}
           <HomeSection />
 
@@ -32,8 +32,8 @@ function App() {
           </div>
 
 
-          <Footer />
         </div>
+        <Footer />
       </MatrixBackground>
     </ThemeProvider>
   );
