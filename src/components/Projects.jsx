@@ -5,15 +5,15 @@ import { FolderOpen } from "lucide-react";
 const schoolProjects = [
   {
     name: "MMP1 DJ Advertising",
-    details:
-      "Promoting site for a local D&B DJ.",
-    technologies: ["PHP", "HTMl", "CSS"],
+    route: "mmp1-dj", 
+    details: "Promoting site for a local D&B DJ.",
+    technologies: ["PHP", "HTML", "CSS"],
     link: "https://users.multimediatechnology.at/~fhs50842/mmp1/",
   },
   {
     name: "MMP2a Sphere",
-    details:
-      "Manage your project design elements efficiently.",
+    route: "mmp2-sphere", 
+    details: "Manage your project design elements efficiently.",
     technologies: ["Ruby on Rails", "TypeScript"],
     link: "https://team-trasla.projects.multimediatechnology.at/",
   },
@@ -22,11 +22,14 @@ const schoolProjects = [
 const otherProjects = [
   {
     name: "Memory Game",
+    route: "memory-game", 
     details: "A simple memory game with a highscore.",
     technologies: ["React Native", "Nativewind"],
-    // link: "https://side-project.com",
+    // optional link
   },
 ];
+
+
 
 const SectionHeader = ({ title, center = false }) => (
   <div className={`w-full mb-6 bg-black border border-primaryColor py-2 px-4 rounded-md flex items-center ${center ? "justify-center" : "justify-between"}`}>

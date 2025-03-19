@@ -113,3 +113,7 @@
 .section-spacing {
   @apply w-full flex justify-center py-16;
 }
+
+iframe {
+  filter: invert(1) hue-rotate(180deg);
+}
