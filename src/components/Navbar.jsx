@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { FiMenu, FiX } from "react-icons/fi";
 import { Link } from "react-scroll"; 
 import { handleScroll } from "../javascript/Navbar";
@@ -63,20 +63,32 @@ function Navbar() {
 
           {/* Settings Dropdown */}
           <li className="relative" ref={dropdownRef}>
-            <button
-              onClick={() => setDropdownOpen(!dropdownOpen)}
-              className="cursor-pointer hover:text-primaryColor transition relative"
-            >
-              Settings
-            </button>
-            {dropdownOpen && (
-              <div className="absolute right-0 mt-3 px-6 py-3 shadow-lg bg-dark border border-gray-700 rounded-xl z-50 flex justify-center items-center w-max">
-                <ColorBlindToggle />
-              </div>
-            )}
+            <div className="flex flex-col items-center relative">
+              <button
+                onClick={() => setDropdownOpen(!dropdownOpen)}
+                className="cursor-pointer hover:text-primaryColor transition relative"
+              >
+                Settings
+              </button>
+
+              <AnimatePresence>
+                {dropdownOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -8 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute top-full mt-6 bg-dark border border-primary-dark rounded-xl shadow-xl z-50 w-max"
+                  >
+                    <div className="flex flex-col px-6 py-4 space-y-4">
+                      <ColorBlindToggle />
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </li>
         </ul>
-
         {/* Mobile Menu Button */}
         <motion.button
           onClick={() => setMenuOpen(!menuOpen)}
