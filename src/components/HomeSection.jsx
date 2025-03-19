@@ -48,24 +48,25 @@ const HomeSection = () => {
       </motion.p>
       
       <div className="mt-6 flex space-x-4">
-        <motion.a
-          href="/pdf/Lebenslauf_Simon_Bermadinger.pdf"
-          className="px-6 py-3 bg-secondaryColor text-white rounded-lg hover:bg-secondary-dark transition flex items-center"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.3 }} 
-        >
-          📄 Resume
-        </motion.a>
-        <motion.a
-          href="mailto:office.code.bermadinger@gmail.com"
-          className="px-6 py-3 bg-primaryColor text-white rounded-lg hover:bg-primary-dark transition flex items-center"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.3 }} 
-        >
-          Get In Touch
-        </motion.a>
+      <motion.a
+        href="/pdf/CV_Bermadinger.pdf"
+        className="w-40 h-12 flex justify-center items-center bg-secondaryColor text-white rounded-lg hover:bg-secondary-dark transition"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.3 }}
+      >
+        📄 Resume
+      </motion.a>
+      <motion.a
+        href="mailto:office.code.bermadinger@gmail.com"
+        className="w-40 h-12 flex justify-center items-center bg-primaryColor text-white rounded-lg hover:bg-primary-dark transition"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.3 }}
+      >
+        Get In Touch
+      </motion.a>
+
       </div>
       
     </section>
