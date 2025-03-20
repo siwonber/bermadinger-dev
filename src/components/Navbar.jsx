@@ -29,19 +29,24 @@ function Navbar() {
   }, []);
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-black transition-all duration-300">
-      <div className="container mx-auto flex items-center justify-between py-3 px-8">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-black transition-all duration-300 h-16">
+      <div className="container mx-auto flex items-center justify-between py-4 px-8">
         
         {/* Logo */}
-        <Link 
-          to="home" 
-          smooth={true} 
-          duration={500} 
-          className="text-3xl font-bold text-white cursor-pointer"
-          onClick={() => setMenuOpen(false)}
-        >
-          DevBer
-        </Link>
+        <Link
+            to="home"
+            smooth={true}
+            duration={500}
+            onClick={() => setMenuOpen(false)}
+            className="flex items-center gap-2 cursor-pointer"
+          >
+            <img 
+  src="/images/devber-logo-transparent-white.png" 
+  alt="DevBer Logo" 
+  className="h-12 object-contain"
+/>
+
+          </Link>
 
         {/* Desktop Navigation */}
         <ul className="hidden md:flex space-x-10 text-primaryTextColor text-lg">
@@ -114,7 +119,7 @@ function Navbar() {
         <Link to="experience" smooth={true} duration={500} offset={-80} className="text-white text-lg hover:text-primaryColor transition py-3 px-6 cursor-pointer" onClick={() => setMenuOpen(false)}>
           Experience
         </Link>
-        <Link to="projects" smooth={true} duration={500} className="text-white text-lg hover:text-primaryColor transition py-3 px-6 cursor-pointer" onClick={() => setMenuOpen(false)}>
+        <Link to="projects" smooth={true} duration={500} offset={-50} className="text-white text-lg hover:text-primaryColor transition py-3 px-6 cursor-pointer" onClick={() => setMenuOpen(false)}>
           Projects
         </Link>
         

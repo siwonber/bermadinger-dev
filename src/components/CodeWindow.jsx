@@ -10,7 +10,7 @@ const CodeWindow = () => {
       </div>
 
       {/* Code content */}
-      <div className="p-6 text-sm font-mono whitespace-pre-wrap w-full max-h-[70vh] overflow-y-auto md:overflow-visible bg-[#0A192F] rounded-b-2xl text-left scrollbar-thin scrollbar-thumb-[#1F2937] scrollbar-track-[#0A192F]">
+      <div className="p-6 text-sm font-mono whitespace-pre-wrap w-full bg-[#0A192F] rounded-b-2xl text-left scrollbar-thin scrollbar-thumb-[#1F2937] scrollbar-track-[#0A192F]">
         <pre className="text-thirdColor block w-full break-words leading-relaxed">
           <span className="text-thirdColor">// Why I love coding:</span>{"\n"}
           <span className="text-thirdColor">// It's like solving a puzzle with infinite possibilities.</span>{"\n"}
