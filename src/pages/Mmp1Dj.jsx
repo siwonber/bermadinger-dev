@@ -27,7 +27,7 @@ const Mmp1Dj = () => {
 
 
       {/* Project Intro */}
-      <section className="max-w-3xl mx-auto py-24 text-center">
+      <section className="max-w-3xl mx-auto py-12 sm:py-24 text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-8 leading-snug text-primary-color">
           A clean, minimal website for DJ Asom
         </h2>
@@ -43,7 +43,7 @@ const Mmp1Dj = () => {
       </section>
 
       {/* Features */}
-      <section className="max-w-5xl mx-auto py-24 grid md:grid-cols-2 gap-12">
+      <section className="max-w-5xl mx-auto py-12 sm:py-24 grid md:grid-cols-2 gap-12">
         <div>
           <h3 className="text-2xl font-semibold mb-4 text-primary-color">
             Key Features
@@ -67,7 +67,7 @@ const Mmp1Dj = () => {
       </section>
 
       {/* Tech Stack */}
-      <section className="max-w-4xl mx-auto py-24 text-center">
+      <section className="max-w-4xl mx-auto py-12 sm:py-24 text-center">
         <h2 className="text-3xl font-bold mb-12 text-primary-color">
           Technologies Used
         </h2>
@@ -90,7 +90,7 @@ const Mmp1Dj = () => {
       </section>
 
       {/* About & Releases */}
-      <section className="max-w-6xl mx-auto py-24 flex flex-col md:flex-row gap-16 items-stretch">
+      <section className="max-w-6xl mx-auto py-12 sm:py-24 flex flex-col md:flex-row gap-16 items-stretch">
         {/* Text & About */}
         <div className="flex-1 flex flex-col justify-between">
           <div>
@@ -123,7 +123,7 @@ const Mmp1Dj = () => {
       </section>
 
       {/* SoundCloud */}
-      <section className="bg-code-bg py-24">
+      <section className="bg-code-bg py-12 sm:py-24">
         <h2 className="text-3xl font-bold text-center mb-12 text-primary-color">
           Music Preview
         </h2>
@@ -143,7 +143,7 @@ const Mmp1Dj = () => {
       </section>
 
       {/* Colors */}
-      <section className="max-w-4xl mx-auto py-16 text-center">
+      <section className="max-w-4xl mx-auto py-12 sm:py-24 text-center">
         <h2 className="text-3xl font-bold mb-8 text-primary-color">
           Color Template
         </h2>
@@ -167,7 +167,7 @@ const Mmp1Dj = () => {
       </section>
 
       {/* Outro */}
-      <section className="max-w-3xl mx-auto py-24 text-center">
+      <section className="max-w-3xl mx-auto py-12 sm:py-24 text-center">
         <h2 className="text-3xl font-bold mb-8 text-primary-color">Learnings</h2>
         <p className="text-primary-text-grey leading-relaxed">
           My first real project taught me how to bring design and development
