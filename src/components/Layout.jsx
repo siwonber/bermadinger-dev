@@ -6,15 +6,14 @@ import { useLocation } from "react-router-dom";
 const Layout = ({ children }) => {
   const location = useLocation();
 
-  // Check ob SimpleNavbar gebraucht wird
   const isSimpleNavbar = location.pathname.startsWith("/projects/") || location.pathname.startsWith("/footer/");
 
   return (
     <>
       {isSimpleNavbar ? <SimpleNavbar /> : <Navbar />}
 
-      <div className="bg-background text-textColor px-6 sm:px-0 min-h-screen flex flex-col">
-        <main className="flex-grow">
+      <div className="bg-background text-textColor min-h-screen flex flex-col">
+        <main className="flex-grow px-6 sm:px-0">
           {children}
         </main>
         <Footer />
