@@ -97,8 +97,8 @@
 
 /* Colorblind Mode */
 .colorblind {
-  --secondary-color: #3C7DC4; 
-  --secondary-dark-color: #164A85; 
+  --primary-color: #3C7DC4; 
+  --primary-dark-color: #164A85; 
   --secondary-color: #C49717;
   /* Gelb */
   --secondary-dark-color: #9E7A12;
