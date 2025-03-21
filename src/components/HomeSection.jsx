@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import ChangingPhrase from "../javascript/ChangingPhrase";
-import CodeWindow from "./CodeWindow"; // Angepasst, weil es jetzt in components ist
-import Experience from "./Experience";
+
 
 const HomeSection = () => {
   return (

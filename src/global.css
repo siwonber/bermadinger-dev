@@ -28,10 +28,9 @@
   --primary-text-grey: #9CA3AF;
   /* Grau für Text */
 
-  --primary-color: #b11226;
-  /* Rot */
-  --primary-dark-color: #8f0e1f;
-  /* Dunkleres Rot */
+  --primary-color: #D6001C; /* Helles, kräftiges Rot, AAA */
+  --primary-dark-color: #940014; /* Sattes dunkles Rot, AAA */
+  
   --secondary-color: #3C7DC4;
   /* Blau */
   --secondary-dark-color: #2F629A;
@@ -98,10 +97,8 @@
 
 /* Colorblind Mode */
 .colorblind {
-  --primary-color: #3C7DC4;
-  /* Blau */
-  --primary-dark-color: #2F629A;
-  /* Dunkleres Blau */
+  --secondary-color: #3C7DC4; 
+  --secondary-dark-color: #164A85; 
   --secondary-color: #C49717;
   /* Gelb */
   --secondary-dark-color: #9E7A12;

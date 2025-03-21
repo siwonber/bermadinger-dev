@@ -20,23 +20,27 @@ function Footer() {
 
       {/* Social Links */}
       <div className="flex justify-center gap-6 text-lg">
-        <a 
-          href="https://www.instagram.com/siwonber/" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="hover:text-white transition transform hover:scale-110"
-        >
-          <FaInstagram />
-        </a>
-        <a 
-          href="https://www.linkedin.com/in/simon-bermadinger-7585b6339/" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="hover:text-white transition transform hover:scale-110"
-        >
-          <FaLinkedin />
-        </a>
-      </div>
+          <a 
+            href="https://www.instagram.com/siwonber/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            aria-label="Instagram Profile"
+            role="link"
+            className="hover:text-white transition transform hover:scale-110"
+          >
+            <FaInstagram />
+          </a>
+          <a 
+            href="https://www.linkedin.com/in/simon-bermadinger-7585b6339/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            aria-label="LinkedIn Profile"
+            role="link"
+            className="hover:text-white transition transform hover:scale-110"
+          >
+            <FaLinkedin />
+          </a>
+        </div>
     </footer>
   );
 }

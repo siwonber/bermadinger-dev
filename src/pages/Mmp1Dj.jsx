@@ -45,7 +45,7 @@ const Mmp1Dj = () => {
             href="https://users.multimediatechnology.at/~fhs50842/mmp1/" 
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 border border-primaryColor text-primaryColor px-8 py-3 rounded-full bg-black text-base hover:bg-primary-dark hover:text-white transition-all duration-300 ease-in-out"
+            className="inline-flex items-center gap-2 border border-primaryColor text-primaryColor px-8 py-3 rounded-full bg-black text-base hover:bg-primaryColor hover:text-white transition-all duration-300 ease-in-out"
           >
             Visit Site
             <svg

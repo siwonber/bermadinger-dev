@@ -6,14 +6,15 @@ const ProjectCard = ({ project }) => (
   <div className="bg-black p-8 mb-10 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between relative hover:bg-gray-700">
     {/* Icon - interne Seite */}
     <Link
-      to={`/projects/${project.route}`}
-      className="absolute top-5 right-5 text-primaryColor hover:text-primary-dark transition-colors"
-    >
-      <FolderOpen
-        size={28}
-        className="hover:rotate-12 transition-transform duration-300"
-      />
-    </Link>
+        to={`/projects/${project.route}`}
+        className="absolute top-5 right-5 text-primaryColor hover:text-primary-dark transition-colors"
+        aria-label={`Open ${project.name} details`} // <- WICHTIG
+      >
+        <FolderOpen
+          size={28}
+          className="hover:rotate-12 transition-transform duration-300"
+        />
+      </Link>
 
     {/* Title - interne Seite */}
     <div>
@@ -46,7 +47,7 @@ const ProjectCard = ({ project }) => (
           href={project.link}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 border border-primaryColor text-primaryColor px-6 py-2 rounded-full text-sm hover:bg-primary-dark hover:text-white transition-all duration-300 ease-in-out"
+          className="inline-flex items-center gap-2 border border-primaryColor text-primaryColor px-6 py-2 rounded-full text-sm hover:bg-primaryColor hover:text-white transition-all duration-300 ease-in-out"
         >
           Visit Site
           <svg
@@ -69,7 +70,7 @@ const ProjectCard = ({ project }) => (
       {/* Read More - interne Seite */}
       <Link
         to={`/projects/${project.route}`}
-        className="inline-flex items-center gap-2 border border-primaryColor text-primaryColor px-6 py-2 rounded-full text-sm hover:bg-primary-dark hover:text-white transition-all duration-300 ease-in-out"
+        className="inline-flex items-center gap-2 border border-primaryColor text-primaryColor px-6 py-2 rounded-full text-sm hover:bg-primaryColor hover:text-white transition-all duration-300 ease-in-out"
       >
         Read More
         <svg
