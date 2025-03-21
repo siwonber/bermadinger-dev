@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 const words = [
-  "a MMT Web Student.",
+  "studying MMT WEB.",
   "always learning.",
   "always trying new things.",
   "a Developer.",

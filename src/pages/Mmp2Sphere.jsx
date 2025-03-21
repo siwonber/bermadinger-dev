@@ -11,7 +11,7 @@ const Mmp2Sphere = () => {
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{
-              backgroundImage: "url('/images/mmp2a/Header.jpeg')",
+              backgroundImage: "url('/images/mmp2a/Header.webp')",
             }}
           ></div>
           {/* Overlay */}
@@ -53,7 +53,7 @@ const Mmp2Sphere = () => {
         </div>
         <div className="flex-1 flex justify-center">
           <img
-            src="/images/mmp2a/Projects.png"
+            src="/images/mmp2a/Projects.webp"
             alt="Projects Overview"
             className="rounded-xl shadow-lg max-w-full md:max-w-[800px]"
           />
@@ -73,7 +73,7 @@ const Mmp2Sphere = () => {
         </div>
         <div className="flex-1 flex justify-center">
           <img
-            src="/images/mmp2a/key_features.png"
+            src="/images/mmp2a/key_features.webp"
             alt="Key Features"
             className="rounded-xl shadow-lg max-w-full md:max-w-[800px]"
           />
@@ -90,7 +90,7 @@ const Mmp2Sphere = () => {
         </div>
         <div className="flex-1 flex justify-center">
           <img
-            src="/images/mmp2a/Create_download.png"
+            src="/images/mmp2a/Create_download.webp"
             alt="Upload Download"
             className="rounded-xl shadow-lg max-w-full md:max-w-[800px]"
           />

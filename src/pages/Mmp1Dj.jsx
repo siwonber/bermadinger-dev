@@ -11,7 +11,7 @@ const Mmp1Dj = () => {
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{
-              backgroundImage: "url('/images/mmp1/Asom_Stage.jpeg')",
+              backgroundImage: "url('/images/mmp1/Asom_Stage.webp')",
             }}
           ></div>
           <hgroup className="relative z-10 text-center">
@@ -106,7 +106,7 @@ const Mmp1Dj = () => {
             </p>
           </div>
           <img
-            src="/images/mmp1/About.png"
+            src="/images/mmp1/About.webp"
             alt="DJ Asom"
             className="rounded-xl shadow-lg w-full md:w-[90%] lg:w-[1000px] mx-auto mt-12"
           />
@@ -115,7 +115,7 @@ const Mmp1Dj = () => {
         {/* Releases Bild */}
         <div className="flex-1 flex justify-center items-end">
           <img
-            src="/images/mmp1/Music_API.png"
+            src="/images/mmp1/Music_API.webp"
             alt="DJ Website Showcase"
             className="rounded-xl shadow-lg w-full md:w-[90%] lg:w-[550px]"
           />

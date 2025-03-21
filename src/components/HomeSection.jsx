@@ -29,7 +29,7 @@ const HomeSection = () => {
       </motion.h1>
       
       <motion.p
-        className="text-2xl font-semibold text-primaryColor mt-2 "
+        className="text-2xl font-semibold text-primaryColor mt-2 h-12"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
