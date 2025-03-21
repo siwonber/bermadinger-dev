@@ -1,18 +1,26 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 export default function MatrixBackground({ children }) {
+  const animationFrameId = useRef(null);
+  const canvasRef = useRef(null);
+
   useEffect(() => {
-    const canvas = document.getElementById("matrixCanvas");
+    const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
 
-    // 📌 Hochauflösende Darstellung
-    const dpr = window.devicePixelRatio || 1;
-    canvas.width = window.innerWidth * dpr;
-    canvas.height = window.innerHeight * dpr;
-    ctx.scale(dpr, dpr);
+    let dpr = window.devicePixelRatio || 1;
 
-    // 📌 Dynamische Spaltenbreite
+    function resizeCanvas() {
+      canvas.width = window.innerWidth * dpr;
+      canvas.height = window.innerHeight * dpr;
+      ctx.scale(dpr, dpr);
+    }
+
+    resizeCanvas();
+
+    window.addEventListener("resize", resizeCanvas);
+
     let columnWidth;
     if (window.innerWidth < 600) {
       columnWidth = 30;
@@ -52,64 +60,76 @@ export default function MatrixBackground({ children }) {
       return getComputedStyle(document.documentElement).getPropertyValue("--bg-color").trim() || "#000000";
     }
 
-    function drawMatrix() {
-      const bgColor = getBgColor();
-      ctx.fillStyle = hexToRGBA(bgColor, 0.1); // Hintergrund mit Transparenz
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    // FPS Limiter Setup
+    let lastTime = 0;
+    const fps = 10; // 🎯 Hier kannst du weiter runtergehen für noch langsamer (z.B. 6 oder 8)
+    const frameInterval = 1000 / fps;
 
-      const primaryColor = getPrimaryColor();
-      const r = parseInt(primaryColor.slice(1, 3), 16);
-      const g = parseInt(primaryColor.slice(3, 5), 16);
-      const b = parseInt(primaryColor.slice(5, 7), 16);
+    function drawMatrix(currentTime) {
+      if (!lastTime) lastTime = currentTime;
+      const deltaTime = currentTime - lastTime;
 
-      ctx.font = `bold ${fontSize}px monospace`;
+      if (deltaTime > frameInterval) {
+        lastTime = currentTime;
 
-      for (let i = 0; i < drops.length; i++) {
-        let x = i * columnWidth;
-        let y = drops[i] * 20;
+        ctx.save();
+        const bgColor = getBgColor();
+        ctx.fillStyle = hexToRGBA(bgColor, 0.1);
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        if (!symbolData[`${x},${y}`]) {
-          let newText = Math.random() > 0.98 && Math.random() > 0.95
-            ? specialMessages[Math.floor(Math.random() * specialMessages.length)]
-            : String.fromCharCode(0x30a0 + Math.random() * 96);
+        const primaryColor = getPrimaryColor();
+        const r = parseInt(primaryColor.slice(1, 3), 16);
+        const g = parseInt(primaryColor.slice(3, 5), 16);
+        const b = parseInt(primaryColor.slice(5, 7), 16);
 
-          symbolData[`${x},${y}`] = { text: newText, alpha: 1 };
-        }
+        ctx.font = `bold ${fontSize}px monospace`;
 
-        let symbol = symbolData[`${x},${y}`];
-        ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${symbol.alpha})`;
-        ctx.fillText(symbol.text, x, y);
+        for (let i = 0; i < drops.length; i++) {
+          let x = i * columnWidth;
+          let y = drops[i] * 20;
 
-        if (Math.random() > 0.995) {
-          symbol.alpha -= 0.02;
-          if (symbol.alpha <= 0) {
-            delete symbolData[`${x},${y}`];
+          if (!symbolData[`${x},${y}`]) {
+            let newText = Math.random() > 0.98 && Math.random() > 0.95
+              ? specialMessages[Math.floor(Math.random() * specialMessages.length)]
+              : String.fromCharCode(0x30a0 + Math.random() * 96);
+
+            symbolData[`${x},${y}`] = { text: newText, alpha: 1 };
           }
-        }
 
-        if (y > canvas.height / dpr && Math.random() > 0.999) {
-          drops[i] = 0;
+          let symbol = symbolData[`${x},${y}`];
+          ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${symbol.alpha})`;
+          ctx.fillText(symbol.text, x, y);
+
+          if (Math.random() > 0.995) {
+            symbol.alpha -= 0.02;
+            if (symbol.alpha <= 0) {
+              delete symbolData[`${x},${y}`];
+            }
+          }
+
+          if (y > canvas.height / dpr && Math.random() > 0.999) {
+            drops[i] = 0;
+          }
+          drops[i] += 0.4;
         }
-        drops[i] += 0.4;
+        ctx.restore();
       }
+
+      animationFrameId.current = requestAnimationFrame(drawMatrix);
     }
 
-    const interval = setInterval(drawMatrix, 100);
+    animationFrameId.current = requestAnimationFrame(drawMatrix);
 
-    // 📌 Observer für Theme-Änderung
+    // Observer für Theme-Wechsel
     const observer = new MutationObserver(() => {
-      // ❗ Matrix sofort resetten, um graue Übergänge zu vermeiden
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      // Drops & Symbols zurücksetzen
       for (let i = 0; i < drops.length; i++) {
         drops[i] = 1;
       }
       for (let key in symbolData) {
         delete symbolData[key];
       }
-
-      drawMatrix();
+      drawMatrix(performance.now());
     });
 
     observer.observe(document.documentElement, {
@@ -118,20 +138,19 @@ export default function MatrixBackground({ children }) {
     });
 
     return () => {
-      clearInterval(interval);
+      window.removeEventListener("resize", resizeCanvas);
+      cancelAnimationFrame(animationFrameId.current);
       observer.disconnect();
     };
   }, []);
 
   return (
     <div className="relative w-full min-h-screen bg-[var(--bg-color)] text-[var(--text-color)] transition-colors duration-300">
-      {/* Matrix-Canvas */}
       <canvas
+        ref={canvasRef}
         id="matrixCanvas"
         className="fixed top-0 left-0 w-full h-full z-0 pointer-events-none bg-transparent"
       ></canvas>
-
-      {/* Content */}
       <div className="relative z-10">{children}</div>
     </div>
   );
