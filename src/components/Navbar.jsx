@@ -29,8 +29,8 @@ function Navbar() {
   }, []);
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-black transition-all duration-300 h-16">
-      <div className="container mx-auto flex items-center justify-between py-4 px-8">
+    <nav className="fixed top-0 left-0 w-full z-50 transition-all duration-300 md:bg-black md:h-16">
+      <div className="container mx-auto flex flex-row-reverse md:flex-row items-center justify-between py-4 px-8">
         
         {/* Logo */}
         <Link
@@ -38,15 +38,14 @@ function Navbar() {
             smooth={true}
             duration={500}
             onClick={() => setMenuOpen(false)}
-            className="flex items-center gap-2 cursor-pointer"
+            className="hidden md:flex items-center gap-2 cursor-pointer"
           >
             <img 
-  src="/images/devber-logo-transparent-white.png" 
-  alt="DevBer Logo" 
-  className="h-12 object-contain"
-/>
-
-          </Link>
+              src="/images/devber-logo-transparent-white.png" 
+              alt="DevBer Logo" 
+              className="h-12 object-contain"
+            />
+        </Link>
 
         {/* Desktop Navigation */}
         <ul className="hidden md:flex space-x-10 text-primaryTextColor text-lg">
@@ -94,6 +93,7 @@ function Navbar() {
             </div>
           </li>
         </ul>
+
         {/* Mobile Menu Button */}
         <motion.button
           onClick={() => setMenuOpen(!menuOpen)}
@@ -105,29 +105,47 @@ function Navbar() {
         </motion.button>
       </div>
 
-      {/* Mobile Menü */}
-      <motion.div
-        className={`fixed top-0 right-0 h-screen w-[70%] md:w-[50%] lg:w-[30%] bg-dark/95 flex flex-col items-end p-8 pt-24 text-right shadow-lg 
-        ${menuOpen ? "translate-x-0" : "translate-x-full"}`}
-        initial={{ x: "100%" }}
-        animate={{ x: menuOpen ? "0%" : "100%" }}
-        transition={{ duration: 0.3, ease: "easeOut" }}
-      >
-        <Link to="home" smooth={true} duration={500} className="text-white text-lg hover:text-primaryColor transition py-3 px-6 cursor-pointer" onClick={() => setMenuOpen(false)}>
-          Home
-        </Link>
-        <Link to="experience" smooth={true} duration={500} offset={-80} className="text-white text-lg hover:text-primaryColor transition py-3 px-6 cursor-pointer" onClick={() => setMenuOpen(false)}>
-          Experience
-        </Link>
-        <Link to="projects" smooth={true} duration={500} offset={-50} className="text-white text-lg hover:text-primaryColor transition py-3 px-6 cursor-pointer" onClick={() => setMenuOpen(false)}>
-          Projects
-        </Link>
-        
-        {/* Toggles at the bottom */}
-        <div className="mt-auto pb-8 w-full flex flex-col items-center space-y-4">
-          <ColorBlindToggle />
-        </div>
-      </motion.div>
+                
+        {/* Mobile Menü */}
+        <motion.div
+          className={`fixed top-0 right-0 h-screen w-[70%] md:w-[50%] lg:w-[30%] bg-dark/95 flex flex-col items-end p-8 pt-24 text-right shadow-lg 
+          ${menuOpen ? "translate-x-0" : "translate-x-full"}`}
+          initial={{ x: "100%" }}
+          animate={{ x: menuOpen ? "0%" : "100%" }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
+        >
+          {/* Links */}
+          <Link to="home" smooth={true} duration={500} className="text-white text-lg hover:text-primaryColor transition py-3 px-6 cursor-pointer" onClick={() => setMenuOpen(false)}>
+            Home
+          </Link>
+          <Link to="experience" smooth={true} duration={500} offset={-80} className="text-white text-lg hover:text-primaryColor transition py-3 px-6 cursor-pointer" onClick={() => setMenuOpen(false)}>
+            Experience
+          </Link>
+          <Link to="projects" smooth={true} duration={500} offset={-50} className="text-white text-lg hover:text-primaryColor transition py-3 px-6 cursor-pointer" onClick={() => setMenuOpen(false)}>
+            Projects
+          </Link>
+          
+          {/* Spacer to push content down */}
+            <div className="flex-grow"></div>
+              <Link
+                to="home"
+                smooth={true}
+                duration={500}
+                onClick={() => setMenuOpen(false)}
+                className="mb-4 pr-6 cursor-pointer"
+              >
+              <img 
+                src="/images/devber-logo-transparent-white.png" 
+                alt="DevBer Logo" 
+                className="h-12 object-contain"
+              />
+            </Link>
+
+            {/* Toggle */}
+            <div className="pb-8 w-full flex flex-col items-center space-y-4">
+              <ColorBlindToggle />
+            </div>
+        </motion.div>
     </nav>
   );
 }

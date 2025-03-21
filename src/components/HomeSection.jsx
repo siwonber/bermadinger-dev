@@ -13,7 +13,7 @@ const HomeSection = () => {
         transition={{ duration: 0.4 }} 
       >
         <img 
-          src="/images/simon.jpg" 
+          src="/images/simon.webp" 
           alt="Simon" 
           className="w-full h-full object-cover object-center"
         />
