@@ -3,8 +3,7 @@ import { FolderOpen } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const ProjectCard = ({ project }) => (
-  <div className="bg-black p-8 mb-10 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between relative">
-    
+  <div className="bg-black p-8 mb-10 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between relative hover:bg-gray-700">
     {/* Icon - interne Seite */}
     <Link
       to={`/projects/${project.route}`}
@@ -24,7 +23,7 @@ const ProjectCard = ({ project }) => (
       >
         {project.name}
       </Link>
-      <p className="text-gray-400 text-base mt-4 leading-relaxed">{project.details}</p>
+      <p className="text-primaryTextGray text-base mt-4 leading-relaxed">{project.details}</p>
     </div>
 
     {/* Technologies */}
@@ -39,14 +38,15 @@ const ProjectCard = ({ project }) => (
       ))}
     </div>
 
-    {/* Visit Button - bleibt extern */}
-    {project.link && (
-      <div className="mt-8 flex justify-start">
+    {/* Buttons */}
+    <div className="mt-8 flex gap-4 flex-wrap">
+      {/* Visit Site - extern */}
+      {project.link && (
         <a
           href={project.link}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 border border-primaryColor text-primaryColor px-6 py-2 rounded-full text-sm hover:bg-primary-dark hover:text-black transition-all duration-300 ease-in-out"
+          className="inline-flex items-center gap-2 border border-primaryColor text-primaryColor px-6 py-2 rounded-full text-sm hover:bg-primary-dark hover:text-white transition-all duration-300 ease-in-out"
         >
           Visit Site
           <svg
@@ -64,8 +64,30 @@ const ProjectCard = ({ project }) => (
             />
           </svg>
         </a>
-      </div>
-    )}
+      )}
+
+      {/* Read More - interne Seite */}
+      <Link
+        to={`/projects/${project.route}`}
+        className="inline-flex items-center gap-2 border border-primaryColor text-primaryColor px-6 py-2 rounded-full text-sm hover:bg-primary-dark hover:text-white transition-all duration-300 ease-in-out"
+      >
+        Read More
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-4 w-4"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M9 5l7 7-7 7"
+          />
+        </svg>
+      </Link>
+    </div>
   </div>
 );
 

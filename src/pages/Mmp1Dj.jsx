@@ -40,15 +40,39 @@ const Mmp1Dj = () => {
           My first real-world project, where I combined design, development, and
           external API integrations into one cohesive product.
         </p>
+        <div className="relative z-10 mt-8">
+          <a
+            href="https://users.multimediatechnology.at/~fhs50842/mmp1/" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 border border-primaryColor text-primaryColor px-8 py-3 rounded-full bg-black text-base hover:bg-primary-dark hover:text-white transition-all duration-300 ease-in-out"
+          >
+            Visit Site
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M14 5l7 7m0 0l-7 7m7-7H3"
+              />
+            </svg>
+          </a>
+        </div>
       </section>
 
       {/* Features */}
-      <section className="max-w-5xl mx-auto py-12 sm:py-24 grid md:grid-cols-2 gap-12">
+      <section className="max-w-5xl mx-auto py-12 sm:py-24 grid md:grid-cols-2 gap-12 text-center">
         <div>
           <h3 className="text-2xl font-semibold mb-4 text-primary-color">
             Key Features
           </h3>
-          <ul className="text-primary-text-grey leading-relaxed list-disc list-inside">
+          <ul className="text-primary-text-grey leading-relaxed list-disc list-inside text-start">
             <li>Responsive layout</li>
             <li>Fast loading & minimal navigation</li>
             <li>SoundCloud API Integration</li>

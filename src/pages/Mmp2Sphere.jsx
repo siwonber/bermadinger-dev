@@ -40,6 +40,30 @@ const Mmp2Sphere = () => {
         <p className="text-primary-text-grey leading-relaxed">
           Streamline your workflow and keep everything consistent and accessible. This project helped me structure complex UI functionality into a smooth admin experience.
         </p>
+          <div className="relative z-10 mt-8">
+              <a
+                href="https://team-trasla.projects.multimediatechnology.at/" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 border border-primaryColor text-primaryColor px-8 py-3 rounded-full text-base bg-black hover:bg-primary-dark hover:text-white transition-all duration-300 ease-in-out"
+              >
+                Visit Site
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  />
+                </svg>
+              </a>
+          </div>
       </section>
 
       {/* Projects */}
@@ -48,7 +72,10 @@ const Mmp2Sphere = () => {
         <div className="flex-1">
           <h2 className="text-3xl font-bold mb-6 text-primary-color">Projects</h2>
           <p className="text-primary-text-grey leading-relaxed">
-            Easily create and manage multiple projects. Keep all assets like logos, colors, icons, and fonts organized within each project.
+            Easily create and manage multiple projects.<br />
+            <div className="py-2" >
+             Keep all assets like logos, colors, icons, and fonts organized within each project.
+             </div>
           </p>
         </div>
         <div className="flex-1 flex justify-center">
@@ -58,17 +85,18 @@ const Mmp2Sphere = () => {
             className="rounded-xl shadow-lg max-w-full md:max-w-[800px]"
           />
         </div>
+        
       </section>
 
       {/* Key Features */}
       <section className="max-w-6xl mx-auto py-12 flex flex-col md:flex-row gap-16 items-center px-4">
         <div className="flex-1">
           <h2 className="text-3xl font-bold mb-6 text-primary-color">Key Features</h2>
-          <ul className="text-primary-text-grey leading-relaxed list-disc list-inside">
-            <li>Upload & manage logos, colors, icons, fonts</li>
-            <li>Organize design rules per project</li>
-            <li>Download assets anytime</li>
-            <li>Tagging system for easy navigation</li>
+          <ul className="text-primary-text-grey leading-relaxed list-disc list-inside list-none">
+            <li className="py-1">Upload & manage logos, colors, icons, fonts</li>
+            <li className="py-1">Organize design rules per project</li>
+            <li className="py-1">Download assets anytime</li>
+            <li className="py-1">Tagging system for easy navigation</li>
           </ul>
         </div>
         <div className="flex-1 flex justify-center">
@@ -85,7 +113,10 @@ const Mmp2Sphere = () => {
         <div className="flex-1">
           <h2 className="text-3xl font-bold mb-6 text-primary-color">Upload & Download</h2>
           <p className="text-primary-text-grey leading-relaxed">
-            Easily upload logos, colors, fonts, images. Download your organized assets anytime to use them across various platforms. 
+            Easily upload logos, colors, fonts, images. <br/> 
+            <div className="py-2" >
+            Download your organized assets anytime to use them across various platforms. 
+            </div>
           </p>
         </div>
         <div className="flex-1 flex justify-center">
