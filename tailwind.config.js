@@ -1,11 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
-  darkMode: "class", // Dark Mode als Standard (per Klasse)
+  darkMode: "class",
   theme: {
     extend: {
       fontFamily: {
-        mono: ["Roboto Mono", "monospace"], 
+        mono: ["Roboto Mono", "monospace"],
       },
       colors: {
         primaryTextColor: "var(--primary-text-color)",
@@ -16,11 +16,21 @@ export default {
         secondaryColor: "var(--secondary-color)",
         "secondary-dark": "var(--secondary-dark-color)",
         thirdColor: "var(--third-color)",
-        bgColor: "var(--bg-color)", // Hintergrundfarbe dynamisch aus CSS-Variablen
-        textColor: "var(--text-color)", // Textfarbe dynamisch
+        bgColor: "var(--bg-color)",
+        textColor: "var(--text-color)",
         dark: "#353535",
+      },
+      /*Animation verbessern performance*/
+      keyframes: {
+        blink: {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0" },
+        },
+      },
+      animation: {
+        blink: "blink 1s step-start infinite",
       },
     },
   },
   plugins: [],
-}
+};

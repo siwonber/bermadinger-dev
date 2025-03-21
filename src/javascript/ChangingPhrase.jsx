@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const words = [
   "studying MMT WEB.",
@@ -9,45 +9,53 @@ const words = [
   "a Nerd.",
   "a Gamer.",
   "a Music Enthusiast.",
-  "in Love with my GF! (She made me do this)" 
+  "in Love with my GF! (She made me do this)"
 ];
 
 function ChangingPhrase() {
   const [text, setText] = useState("");
-  const [wordIndex, setWordIndex] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [charIndex, setCharIndex] = useState(0);
-  const [showCursor, setShowCursor] = useState(true);
-  const typingSpeed = isDeleting ? 75 : 150; 
+  const wordIndex = useRef(0);
+  const isDeleting = useRef(false);
+  const charIndex = useRef(0);
+  const [currentWord, setCurrentWord] = useState(words[0]);
 
   useEffect(() => {
-    const handleTyping = () => {
-      if (!isDeleting && charIndex < words[wordIndex].length) {
-        setText((prev) => prev + words[wordIndex][charIndex]);
-        setCharIndex((prev) => prev + 1);
-      } else if (isDeleting && charIndex > 0) {
-        setText((prev) => prev.slice(0, -1));
-        setCharIndex((prev) => prev - 1);
-      } else if (!isDeleting && charIndex === words[wordIndex].length) {
-        setTimeout(() => setIsDeleting(true), 4000);
-      } else if (isDeleting && charIndex === 0) {
-        setIsDeleting(false);
-        setWordIndex((prev) => (prev + 1) % words.length);
+    const typing = setInterval(() => {
+      const word = words[wordIndex.current];
+
+      // Tippen
+      if (!isDeleting.current && charIndex.current < word.length) {
+        setText(word.slice(0, charIndex.current + 1));
+        charIndex.current += 1;
       }
-    };
+      // Löschen
+      else if (isDeleting.current && charIndex.current > 0) {
+        setText(word.slice(0, charIndex.current - 1));
+        charIndex.current -= 1;
+      }
+      // Fertig getippt → Pause & dann löschen starten
+      else if (!isDeleting.current && charIndex.current === word.length) {
+        setTimeout(() => {
+          isDeleting.current = true;
+        }, 2000); // Pause bevor Löschen beginnt
+      }
+      // Komplett gelöscht → nächstes Wort
+      else if (isDeleting.current && charIndex.current === 0) {
+        isDeleting.current = false;
+        wordIndex.current = (wordIndex.current + 1) % words.length;
+        setCurrentWord(words[wordIndex.current]);
+      }
+    }, isDeleting.current ? 75 : 150);
 
-    const timer = setTimeout(handleTyping, typingSpeed);
-    return () => clearTimeout(timer);
-  }, [charIndex, isDeleting, wordIndex]);
-
-  useEffect(() => {
-    const cursorBlink = setInterval(() => {
-      setShowCursor((prev) => !prev);
-    }, 500);
-    return () => clearInterval(cursorBlink);
+    return () => clearInterval(typing);
   }, []);
 
-  return <span className="text-primary">{text}{showCursor && "|"}</span>;
+  return (
+    <span className="text-primary relative">
+      {text}
+      <span className="inline-block ml-1 w-[1ch] animate-blink">|</span>
+    </span>
+  );
 }
 
 export default ChangingPhrase;
