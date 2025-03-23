@@ -1,29 +1,31 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Kritisches CSS (z.B. index.css kritischer Teil) -->
-    <style>
-      body { font-family: 'Roboto Mono', monospace; }
-      /* kritisches CSS hier ergänzen */
-    </style>
-  
-    <!-- Google Fonts async -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;300;400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript>
-      <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;300;400;500;700&display=swap" rel="stylesheet">
-    </noscript>
-  
-    <!-- Nicht kritisches CSS -->
-    <link rel="stylesheet" href="/global.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="/global.css"></noscript>
-  
-    <!-- Restliches index.css (z.B. Tailwind-Utilities) -->
-    <link rel="stylesheet" href="/index.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="/index.css"></noscript>
+    <meta charset="UTF-8" />
+    <meta name="google-site-verification" content="J3Az86l6b_AFWj3rvWUKNz4-rW-weLkE3bvOfs1OhI0" />
+
+    <!-- Favicon & Icons -->
+   <!-- Standard Favicons -->
+      <link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96" />
+      <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+      <link rel="shortcut icon" href="/images/favicon.ico" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+      <link rel="manifest" href="/images/site.webmanifest" />
+
+      <!-- Optional: Dark/Light Mode -->
+      <link rel="icon" type="image/png" href="/images/web-app-manifest-192x192.png" media="(prefers-color-scheme: dark)" />
+      <link rel="icon" type="image/png" href="/images/web-app-manifest-512x512.png" media="(prefers-color-scheme: light)" />
+
+    
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <title>Bermadinger.dev</title>
+
+    <!-- GoatCounter Tracking -->
+    <script data-goatcounter="https://webdevbermadinger.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script>
   </head>
-  
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
