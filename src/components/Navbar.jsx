@@ -67,7 +67,7 @@ function Navbar() {
 
           {/* Settings Dropdown */}
           <li className="relative" ref={dropdownRef}>
-            <div className="flex flex-col items-center relative">
+          <div className="flex flex-col items-center relative inline-flex">
               <button
                 onClick={() => setDropdownOpen(!dropdownOpen)}
                 className="cursor-pointer hover:text-primaryColor transition relative"
@@ -78,12 +78,14 @@ function Navbar() {
               <AnimatePresence>
                 {dropdownOpen && (
                   <motion.div
-                    initial={{ opacity: 0, y: -8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -8 }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute top-full mt-6 bg-dark border border-primary-dark rounded-xl shadow-xl z-50 w-max"
-                  >
+                        initial={{ opacity: 0, y: -8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -8 }}
+                        transition={{ duration: 0.2 }}
+                        className="absolute top-full mt-3 bg-dark border border-primary-dark rounded-xl shadow-xl z-50 w-max right-0"
+                      >
+                
+                
                     <div className="flex flex-col px-6 py-4 space-y-4">
                       <ColorBlindToggle />
                     </div>
