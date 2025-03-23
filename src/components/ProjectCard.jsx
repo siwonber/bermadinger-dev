@@ -51,6 +51,7 @@ const ProjectCard = ({ project }) => (
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 border border-primaryColor text-primaryColor px-6 py-2 rounded-full text-sm hover:bg-primaryColor hover:text-white transition-all duration-300 ease-in-out"
+          aria-label={`Visit the external site for ${project.name}`}
         >
           Visit Site
           <svg
@@ -71,11 +72,16 @@ const ProjectCard = ({ project }) => (
       )}
 
       {/* Read More - interne Seite */}
-      <Link
-        to={`/projects/${project.route}`}
+      <a
+        href={`/projects/${project.route}`}
         className="inline-flex items-center gap-2 border border-primaryColor text-primaryColor px-6 py-2 rounded-full text-sm hover:bg-primaryColor hover:text-white transition-all duration-300 ease-in-out"
+        aria-label={`Learn more about ${project.name}`}
+        title={`Learn more about ${project.name}`}
       >
         Read More
+        {/* Screenreader-only text */}
+        <span className="sr-only"> about {project.name}</span>
+
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-4 w-4"
@@ -90,7 +96,7 @@ const ProjectCard = ({ project }) => (
             d="M9 5l7 7-7 7"
           />
         </svg>
-      </Link>
+      </a>
     </div>
   </div>
 );
