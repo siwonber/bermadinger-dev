@@ -3,7 +3,7 @@ import { FaInstagram, FaLinkedin } from "react-icons/fa";
 
 function Footer() {
   return (
-    <footer className="relative z-20 p-4 bg-gray-800 text-center text-gray-400 mt-auto text-sm">
+    <footer className="relative z-20 p-4 bg-gray-800 text-center text-gray-300 mt-auto text-sm">
       <div className="mb-2">
         © {new Date().getFullYear()} Simon Bermadinger. All rights reserved.
       </div>

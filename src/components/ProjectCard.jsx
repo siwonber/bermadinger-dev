@@ -3,7 +3,10 @@ import { FolderOpen } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const ProjectCard = ({ project }) => (
-  <div className="bg-black p-8 mb-10 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between relative hover:bg-gray-700">
+<div
+  className="bg-black p-8 mb-10 rounded-2xl shadow-lg transition-shadow duration-300 flex flex-col justify-between relative hover:shadow-[0_0_25px_5px_theme(colors.primaryColor)]"
+>
+
     {/* Icon - interne Seite */}
     <Link
         to={`/projects/${project.route}`}

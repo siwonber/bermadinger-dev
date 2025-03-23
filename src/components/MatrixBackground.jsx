@@ -32,7 +32,7 @@ export default function MatrixBackground({ children }) {
 
     const fontSize = 16;
     const columns = Math.floor(window.innerWidth / columnWidth);
-    const drops = Array(columns).fill(1);
+    const drops = Array(columns).fill(-1);
 
     const specialMessages = [
       "Hello World!",
@@ -60,9 +60,8 @@ export default function MatrixBackground({ children }) {
       return getComputedStyle(document.documentElement).getPropertyValue("--bg-color").trim() || "#000000";
     }
 
-    // FPS Limiter Setup
     let lastTime = 0;
-    const fps = 10; // 🎯 Hier kannst du weiter runtergehen für noch langsamer (z.B. 6 oder 8)
+    const fps = 10;
     const frameInterval = 1000 / fps;
 
     function drawMatrix(currentTime) {
@@ -86,31 +85,40 @@ export default function MatrixBackground({ children }) {
 
         for (let i = 0; i < drops.length; i++) {
           let x = i * columnWidth;
-          let y = drops[i] * 20;
 
-          if (!symbolData[`${x},${y}`]) {
-            let newText = Math.random() > 0.98 && Math.random() > 0.95
-              ? specialMessages[Math.floor(Math.random() * specialMessages.length)]
-              : String.fromCharCode(0x30a0 + Math.random() * 96);
-
-            symbolData[`${x},${y}`] = { text: newText, alpha: 1 };
-          }
-
-          let symbol = symbolData[`${x},${y}`];
-          ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${symbol.alpha})`;
-          ctx.fillText(symbol.text, x, y);
-
-          if (Math.random() > 0.995) {
-            symbol.alpha -= 0.02;
-            if (symbol.alpha <= 0) {
-              delete symbolData[`${x},${y}`];
-            }
-          }
-
-          if (y > canvas.height / dpr && Math.random() > 0.999) {
+          if (drops[i] === -1 && Math.random() > 0.999) {
             drops[i] = 0;
           }
-          drops[i] += 0.4;
+
+          if (drops[i] >= 0) {
+            let y = drops[i] * 20;
+
+            if (!symbolData[`${x},${y}`]) {
+              let newText =
+                Math.random() > 0.98 && Math.random() > 0.95
+                  ? specialMessages[Math.floor(Math.random() * specialMessages.length)]
+                  : String.fromCharCode(0x30a0 + Math.random() * 96);
+
+              symbolData[`${x},${y}`] = { text: newText, alpha: 1 };
+            }
+
+            let symbol = symbolData[`${x},${y}`];
+            ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${symbol.alpha})`;
+            ctx.fillText(symbol.text, x, y);
+
+            if (Math.random() > 0.995) {
+              symbol.alpha -= 0.02;
+              if (symbol.alpha <= 0) {
+                delete symbolData[`${x},${y}`];
+              }
+            }
+
+            if (y > canvas.height / dpr && Math.random() > 0.999) {
+              drops[i] = -1;
+            }
+
+            drops[i] += 0.4;
+          }
         }
         ctx.restore();
       }
@@ -120,12 +128,9 @@ export default function MatrixBackground({ children }) {
 
     animationFrameId.current = requestAnimationFrame(drawMatrix);
 
-    // Observer für Theme-Wechsel
     const observer = new MutationObserver(() => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      for (let i = 0; i < drops.length; i++) {
-        drops[i] = 1;
-      }
+      drops.fill(-1);
       for (let key in symbolData) {
         delete symbolData[key];
       }

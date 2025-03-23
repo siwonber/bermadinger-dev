@@ -30,6 +30,10 @@ export default {
       animation: {
         blink: "blink 1s step-start infinite",
       },
+
+      boxShadow: {
+        'primary-glow': '0 0 25px 5px var(--primaryColor)',
+      },
     },
   },
   plugins: [],

@@ -19,21 +19,21 @@ const Mmp1Dj = () => {
       {/* Hero Section */}
       <div className="-mx-6 sm:mx-0">
         <section className="relative w-full h-[80vh] overflow-hidden flex items-center justify-center">
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{
-              backgroundImage: "url('/images/mmp1/Asom_Stage.webp')",
-            }}
-          ></div>
-          <hgroup className="relative z-10 text-center">
-            <h1 className="text-5xl md:text-6xl font-extrabold mb-4 text-primary-color">
-              MMP1 DJ Advertising
-            </h1>
-            <p className="text-primary-text-grey">
-              FH Salzburg | MultiMediaTechnology | 2024
-            </p>
-          </hgroup>
-        </section>
+            <img
+              src="/images/mmp1/Asom_Stage.webp"
+              alt="DJ Asom Stage"
+              className="absolute inset-0 w-full h-full object-cover object-center"
+              fetchpriority="high" // Priorität hoch setzen!
+            />
+            <hgroup className="relative z-10 text-center">
+              <h1 className="text-5xl md:text-6xl font-extrabold mb-4 text-primary-color">
+                MMP1 DJ Advertising
+              </h1>
+              <p className="text-primary-text-grey">
+                FH Salzburg | MultiMediaTechnology | 2024
+              </p>
+            </hgroup>
+          </section>
           </div>
 
 
@@ -125,37 +125,40 @@ const Mmp1Dj = () => {
       </section>
 
       {/* About & Releases */}
-      <section className="max-w-6xl mx-auto py-12 sm:py-24 flex flex-col md:flex-row gap-16 items-stretch">
-        {/* Text & About */}
-        <div className="flex-1 flex flex-col justify-between">
-          <div>
-            <h2 className="text-3xl font-bold mb-6 text-primary-color">
-              About DJ Asom
-            </h2>
-            <p className="text-primary-text-grey leading-relaxed mb-4">
-              Asom is a Salzburg-based Drum & Bass DJ, known for his signature
-              sound and strong presence in the underground scene.
-            </p>
-            <p className="text-primary-text-grey leading-relaxed mb-8">
-              This platform allows fans to stay connected & easily book gigs.
-            </p>
+        <section className="max-w-6xl mx-auto py-12 sm:py-24 flex flex-col md:flex-row gap-16 items-stretch">
+          {/* Text & About */}
+          <div className="flex-1 flex flex-col justify-between">
+            <div>
+              <h2 className="text-3xl font-bold mb-6 text-primary-color">
+                About DJ Asom
+              </h2>
+              <p className="text-primary-text-grey leading-relaxed mb-4">
+                Asom is a Salzburg-based Drum & Bass DJ, known for his signature
+                sound and strong presence in the underground scene.
+              </p>
+              <p className="text-primary-text-grey leading-relaxed mb-8">
+                This platform allows fans to stay connected & easily book gigs.
+              </p>
+            </div>
+            <img
+              src="/images/mmp1/About.webp"
+              alt="DJ Asom"
+              loading="lazy"
+              className="rounded-xl shadow-lg w-full md:w-[90%] lg:w-[1000px] mx-auto mt-12"
+            />
           </div>
-          <img
-            src="/images/mmp1/About.webp"
-            alt="DJ Asom"
-            className="rounded-xl shadow-lg w-full md:w-[90%] lg:w-[1000px] mx-auto mt-12"
-          />
-        </div>
 
-        {/* Releases Bild */}
-        <div className="flex-1 flex justify-center items-end">
-          <img
-            src="/images/mmp1/Music_API.webp"
-            alt="DJ Website Showcase"
-            className="rounded-xl shadow-lg w-full md:w-[90%] lg:w-[550px]"
-          />
-        </div>
-      </section>
+          {/* Releases Bild */}
+          <div className="flex-1 flex justify-center items-end">
+            <img
+              src="/images/mmp1/Music_API.webp"
+              alt="DJ Website Showcase"
+              loading="lazy"
+              className="rounded-xl shadow-lg w-full md:w-[90%] lg:w-[550px]"
+            />
+          </div>
+        </section>
+
 
       {/* SoundCloud */}
       <section className="bg-code-bg py-12 sm:py-24">
