@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Home -->
+  <url>
+    <loc>https://www.bermadinger.dev/</loc>
+  </url>
+
+  <!-- Projects -->
+  <url>
+    <loc>https://www.bermadinger.dev/projects/mmp1-dj</loc>
+  </url>
+
+  <url>
+    <loc>https://www.bermadinger.dev/projects/mmp2-sphere</loc>
+  </url>
+
+  <url>
+    <loc>https://www.bermadinger.dev/projects/memory-game</loc>
+  </url>
+
+  <!-- Footer Pages -->
+  <url>
+    <loc>https://www.bermadinger.dev/footer/imprint</loc>
+  </url>
+
+  <url>
+    <loc>https://www.bermadinger.dev/footer/privacy</loc>
+  </url>
+
+</urlset>
