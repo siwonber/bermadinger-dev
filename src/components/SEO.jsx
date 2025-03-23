@@ -22,7 +22,6 @@ function SEO({ title, description, url, image }) {
       <meta name="twitter:image" content={image} />
 
       <meta name="google-site-verification" content="J3Az86l6b_AFWj3rvWUKNz4-rW-weLkE3bvOfs1OhI0" />
-
       {/* Structured Data */}
       <script type="application/ld+json">
         {`
