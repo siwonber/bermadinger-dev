@@ -54,7 +54,7 @@ const Mmp2Sphere = () => {
             href="https://team-trasla.projects.multimediatechnology.at/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 border border-primaryColor text-primaryColor px-8 py-3 rounded-full text-base bg-black hover:bg-primaryColor hover:text-white transition-all duration-300 ease-in-out"
+            className="inline-flex items-center gap-2 bg-primaryColor text-white px-8 py-3 rounded-full text-base bg-black hover:bg-primary-dark hover: transition-all duration-300 ease-in-out"
           >
             Visit Site
             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
