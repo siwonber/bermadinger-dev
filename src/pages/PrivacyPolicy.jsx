@@ -1,8 +1,18 @@
 import BackToHomeButton from "../components/BackToHomeButton";
+import SEO from "../components/SEO";
 
 const PrivacyPolicy = () => {
   return (
     <div className="min-h-screen bg-bg-color text-text-color py-16 px-0 sm:px-6">
+
+      {/* SEO */}
+      <SEO
+        title="Privacy Policy | Simon Bermadinger"
+        description="Read how Simon Bermadinger protects your data and complies with GDPR. Learn about hosting, analytics, and security measures."
+        url="https://www.bermadinger.dev/footer/privacy"
+        image="https://www.bermadinger.dev/images/home-og.jpg"
+      />
+
       <BackToHomeButton />
 
       <div className="w-full bg-black/90 px-0 py-8 sm:max-w-3xl sm:mx-auto rounded-none sm:rounded-xl">

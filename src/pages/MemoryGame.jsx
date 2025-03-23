@@ -1,9 +1,19 @@
 import SimpleNavbar from "../components/BackToHomeButton";
 import '../styles/loader.css';
+import SEO from "../components/SEO";
 
 const MemoryGame = () => {
   return (
     <div className="bg-bg-color text-text-color min-h-screen flex flex-col">
+
+      {/* SEO */}
+      <SEO
+        title="Memory Game | Simon Bermadinger"
+        description="A fun matching memory game to test your skills. Coming soon!"
+        url="https://www.bermadinger.dev/projects/memory-game"
+        image="https://www.bermadinger.dev/images/memory-game-og.jpg"
+      />
+
       <SimpleNavbar />
 
       {/* Content */}

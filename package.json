@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "generate-og": "node generate-og.mjs"
   },
   "dependencies": {
     "@fontsource/roboto-mono": "^5.2.5",
@@ -15,6 +16,7 @@
     "lucide-react": "^0.479.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-helmet": "^6.1.0",
     "react-icons": "^5.5.0",
     "react-router-dom": "^7.4.0",
     "react-scroll": "^1.9.3"
@@ -30,6 +32,7 @@
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^15.15.0",
     "postcss": "^8.5.3",
+    "puppeteer": "^24.4.0",
     "tailwindcss": "^3.4.1",
     "vite": "^6.2.0"
   }

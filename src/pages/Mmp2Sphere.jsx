@@ -1,8 +1,18 @@
 import BackToHomeButton from "../components/BackToHomeButton";
+import SEO from "../components/SEO";
 
 const Mmp2Sphere = () => {
   return (
     <div className="bg-bg-color text-text-color">
+
+      {/*SEO*/}
+      <SEO
+        title="MMP2 Sphere | Design System Manager | Simon Bermadinger"
+        description="Sphere – Manage your design elements efficiently. Upload, download & organize your projects' assets in one place."
+        url="https://www.bermadinger.dev/projects/mmp2-sphere"
+        image="https://www.bermadinger.dev/images/mmp2-sphere-og.jpg"
+      />
+
       <BackToHomeButton />
 
       {/* Hero Section */}

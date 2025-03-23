@@ -13,6 +13,7 @@ import MemoryGame from "./pages/MemoryGame";
 import Imprint from "./pages/Imprint";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import ScrollToTop from "./components/ScrollToTop";
+import SEO from "./components/SEO";
 
 
 function App() {
@@ -26,6 +27,14 @@ function App() {
             path="/"
             element={
               <Layout>
+
+                {/* SEO */}
+                <SEO
+                  title="Simon Bermadinger | Fullstack Developer Portfolio"
+                  description="Welcome to the portfolio of Simon Bermadinger – Fullstack Developer. Explore projects, skills, and experience."
+                  url="https://www.bermadinger.dev/"
+                  image="https://www.bermadinger.dev/images/home-og.jpg"
+                />
                 <HomeSection />
                 <div className="section-spacing">
                   <CodeWindow />

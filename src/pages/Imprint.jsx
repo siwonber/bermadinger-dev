@@ -1,8 +1,18 @@
 import BackToHomeButton from "../components/BackToHomeButton";
+import SEO from "../components/SEO";
 
 const Imprint = () => {
   return (
     <div className="min-h-screen bg-bg-color text-text-color py-16 px-0 sm:px-6">
+
+      {/* SEO */}
+      <SEO
+        title="Imprint | Simon Bermadinger"
+        description="Legal disclosure for Simon Bermadinger's portfolio. Contact information, hosting details, analytics information, and disclaimers."
+        url="https://www.bermadinger.dev/footer/imprint"
+        image="https://www.bermadinger.dev/images/home-og.jpg"
+      />
+
       <BackToHomeButton />
 
       <div className="max-w-3xl mx-auto bg-black/90 px-0 py-8 rounded-xl">
