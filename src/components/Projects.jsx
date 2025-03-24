@@ -61,29 +61,42 @@ const Projects = () => {
         </div>
       </div>
 
-      {/* Mobile Horizontal Scroll - School Projects */}
-      <div className="sm:hidden mb-8">
-        <SectionHeader title="School Projects" />
-        <div className="flex space-x-4 overflow-x-auto snap-x snap-mandatory">
-          {schoolProjects.map((project, index) => (
-            <div key={index} className="flex-shrink-0 basis-[90%] snap-center">
-              <ProjectCard project={project} />
+       {/* Mobile Horizontal Scroll - School Projects */}
+          <div className="sm:hidden mb-12 pt-12">
+            <SectionHeader title="School Projects" center />
+            
+            <div className="overflow-x-scroll scrollbar-hide">
+              <div className="flex space-x-6 snap-x snap-mandatory px-6">
+                {schoolProjects.map((project, index) => (
+                  <div 
+                    key={index} 
+                    className="flex-shrink-0 w-80 snap-center bg-neutral-900 rounded-2xl shadow-lg p-4"
+                  >
+                    <ProjectCard project={project} />
+                  </div>
+                ))}
+              </div>
             </div>
-          ))}
-        </div>
-      </div>
+          </div>
 
-      {/* Mobile Horizontal Scroll - Other Projects */}
-      <div className="sm:hidden">
-        <SectionHeader title="Projects" />
-        <div className="flex space-x-4 overflow-x-auto snap-x snap-mandatory">
-          {otherProjects.map((project, index) => (
-            <div key={index} className="flex-shrink-0 basis-[90%] snap-center">
-              <ProjectCard project={project} />
+          {/* Mobile Horizontal Scroll - Other Projects */}
+          <div className="sm:hidden mb-12 pt-12">
+            <SectionHeader title="Projects" center />
+            
+            <div className="overflow-x-scroll scrollbar-hide">
+              <div className="flex space-x-6 snap-x snap-mandatory px-6">
+                {otherProjects.map((project, index) => (
+                  <div 
+                    key={index} 
+                    className="flex-shrink-0 w-80 snap-center bg-neutral-900 rounded-2xl shadow-lg p-4"
+                  >
+                    <ProjectCard project={project} />
+                  </div>
+                ))}
+              </div>
             </div>
-          ))}
-        </div>
-      </div>
+          </div>
+
 
     </div>
   );

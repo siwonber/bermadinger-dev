@@ -7,12 +7,12 @@ const Imprint = () => {
 
       {/* SEO */}
       <SEO
-        title="Imprint | Simon Bermadinger"
-        description="Legal disclosure for Simon Bermadinger's portfolio. Contact information, hosting details, analytics information, and disclaimers."
-        url="https://www.bermadinger.dev/footer/imprint"
-        image="https://www.bermadinger.dev/images/home-og.jpg"
-      />
-
+          title="Imprint | Simon Bermadinger | Salzburg, Austria"
+          description="Legal disclosure for Simon Bermadinger's portfolio based in Salzburg, Austria. Contact information, hosting details, analytics information, and disclaimers."
+          url="https://www.bermadinger.dev/footer/imprint"
+          image="https://www.bermadinger.dev/images/home-og.jpg"
+        />
+        
       <BackToHomeButton />
 
       <div className="max-w-3xl mx-auto bg-black/90 px-0 py-8 rounded-xl">

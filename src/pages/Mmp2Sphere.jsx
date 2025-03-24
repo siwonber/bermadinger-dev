@@ -7,8 +7,8 @@ const Mmp2Sphere = () => {
 
       {/* SEO */}
       <SEO
-        title="MMP2 Sphere | Design System Manager | Simon Bermadinger"
-        description="Sphere – Manage your design elements efficiently. Upload, download & organize your projects' assets in one place."
+        title="MMP2 Sphere | Design System Manager | Simon Bermadinger | FH Salzburg"
+        description="Sphere – A design system management tool developed during the MultiMediaTechnology program at FH Salzburg. Upload, download & organize your projects' assets efficiently. Built by Simon Bermadinger based in Salzburg, Austria."
         url="https://www.bermadinger.dev/projects/mmp2-sphere"
         image="https://www.bermadinger.dev/images/mmp2-sphere-og.jpg"
       />

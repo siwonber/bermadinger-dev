@@ -30,11 +30,12 @@ function App() {
 
                 {/* SEO */}
                 <SEO
-                  title="Simon Bermadinger | Fullstack Developer Portfolio"
-                  description="Welcome to the portfolio of Simon Bermadinger – Fullstack Developer. Explore projects, skills, and experience."
+                  title="Simon Bermadinger | Fullstack Developer in Salzburg, Austria"
+                  description="Welcome to the portfolio of Simon Bermadinger – Fullstack Developer based in Salzburg, Austria. Explore projects, skills, and experience in web development."
                   url="https://www.bermadinger.dev/"
                   image="https://www.bermadinger.dev/images/home-og.jpg"
                 />
+
                 <HomeSection />
                 <div className="section-spacing">
                   <CodeWindow />

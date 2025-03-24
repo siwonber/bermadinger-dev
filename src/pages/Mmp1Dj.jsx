@@ -7,12 +7,11 @@ const Mmp1Dj = () => {
 
       {/* SEO */}
       <SEO
-        title="MMP1 DJ Advertising | Simon Bermadinger"
-        description="Clean, minimal DJ website project built with HTML, CSS, PHP & API integrations. Explore the design & development process."
-        url="https://www.bermadinger.dev/projects/mmp1-dj"
-        image="https://www.bermadinger.dev/images/mmp1-dj-og.jpg"
-      />
-
+          title="MMP1 DJ Advertising | Simon Bermadinger | FH Salzburg"
+          description="DJ Advertising project developed during the MultiMediaTechnology program at FH Salzburg. A clean, minimal DJ website using HTML, CSS, PHP & API integrations, created by Simon Bermadinger based in Salzburg, Austria."
+          url="https://www.bermadinger.dev/projects/mmp1-dj"
+          image="https://www.bermadinger.dev/images/mmp1-dj-og.jpg"
+        />
 
       <BackToHomeButton />
 

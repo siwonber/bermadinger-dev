@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiMenu, FiX } from "react-icons/fi";
 import { Link } from "react-scroll"; 
-import { handleScroll } from "../javascript/Navbar";
 import ColorBlindToggle from "./ColorBlindToggle";
 import resolveConfig from "tailwindcss/resolveConfig";
 import tailwindConfig from "../../tailwind.config";
@@ -109,7 +108,7 @@ function Navbar() {
         {/* Mobile Menu Button */}
         <motion.button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden text-white focus:outline-none z-[60] relative" // z-[60] höher als Menü und Overlay
+          className="md:hidden text-white focus:outline-none z-[70] relative"
           animate={{ rotate: menuOpen ? 180 : 0, color: menuOpen ? primaryColor : "#ffffff" }}
           transition={{ duration: 0.2 }}
         >
@@ -120,7 +119,7 @@ function Navbar() {
 
       {/* Overlay für Mobile */}
       {menuOpen && (
-          <div
+        <div
           className="fixed inset-0 bg-black/50 z-40 md:hidden"
           onClick={() => setMenuOpen(false)}
         ></div>
@@ -128,13 +127,13 @@ function Navbar() {
 
       {/* Mobile Menü */}
       <motion.div
-          className={`fixed top-0 right-0 h-screen w-[70%] md:w-[50%] lg:w-[30%] bg-dark/95 flex flex-col items-end p-8 pt-24 text-right shadow-lg z-50
-          ${menuOpen ? "translate-x-0" : "translate-x-full"}`}
-          initial={{ x: "100%" }}
-          animate={{ x: menuOpen ? "0%" : "100%" }}
-          transition={{ duration: 0.3, ease: "easeOut" }}
-          onClick={(e) => e.stopPropagation()} // <<< DAS verhindert, dass Klicks im Menü das Overlay triggern
-        >
+        className={`fixed top-0 right-0 h-screen w-[70%] md:w-[50%] lg:w-[30%] bg-dark/95 flex flex-col items-end p-8 pt-24 text-right shadow-lg z-[60] overflow-y-auto overscroll-contain
+        ${menuOpen ? "translate-x-0" : "translate-x-full"}`}
+        initial={{ x: "100%" }}
+        animate={{ x: menuOpen ? "0%" : "100%" }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
+        onClick={(e) => e.stopPropagation()}
+      >
 
         {/* Links */}
         <Link to="home" href="#home" smooth={true} duration={500} className="text-white text-lg hover:text-primaryColor transition py-3 px-6 cursor-pointer" onClick={() => setMenuOpen(false)}>
@@ -147,29 +146,29 @@ function Navbar() {
           Projects
         </Link>
 
-        {/* Spacer */}
-        <div className="flex-grow"></div>
-        <Link
-          to="home"
-          href="#home"
-          smooth={true}
-          duration={500}
-          onClick={() => setMenuOpen(false)}
-          className="mb-4 pr-6 cursor-pointer"
-        >
-          <img 
-            src="/images/devber-logo-transparent-white.png" 
-            alt="DevBer - Simon Bermadinger Portfolio Logo"
-            className="h-12 object-contain"
-          />
-        </Link>
+        {/* Logo */}
+        <div className="mt-auto mb-8 w-full flex justify-center">
+          <Link
+            to="home"
+            href="#home"
+            smooth={true}
+            duration={500}
+            onClick={() => setMenuOpen(false)}
+            className="cursor-pointer"
+          >
+            <img 
+              src="/images/devber-logo-transparent-white.png" 
+              alt="DevBer - Simon Bermadinger Portfolio Logo"
+              className="h-12 object-contain"
+            />
+          </Link>
+        </div>
 
         {/* Toggle */}
-        <div className="pb-8 w-full flex flex-col items-center space-y-4">
-          <div className="w-full flex justify-center">
-            <ColorBlindToggle />
-          </div>
+        <div className="pb-8 w-full flex justify-center">
+          <ColorBlindToggle />
         </div>
+
       </motion.div>
     </nav>
   );
