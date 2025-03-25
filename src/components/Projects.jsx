@@ -70,7 +70,7 @@ const Projects = () => {
                 {schoolProjects.map((project, index) => (
                   <div 
                     key={index} 
-                    className="flex-shrink-0 w-80 snap-center bg-neutral-900 rounded-2xl shadow-lg p-4"
+                    className="flex-shrink-0 w-80 snap-center bg-transparent rounded-2xl shadow-lg p-4"
                   >
                     <ProjectCard project={project} />
                   </div>
@@ -88,7 +88,7 @@ const Projects = () => {
                 {otherProjects.map((project, index) => (
                   <div 
                     key={index} 
-                    className="flex-shrink-0 w-80 snap-center bg-neutral-900 rounded-2xl shadow-lg p-4"
+                    className="flex-shrink-0 w-80 snap-center bg-transparent rounded-2xl shadow-lg p-4"
                   >
                     <ProjectCard project={project} />
                   </div>
