@@ -21,10 +21,11 @@ const schoolProjects = [
 
 const otherProjects = [
   {
-    name: "Memory Game",
+    name: "Fluffy Flip",
     route: "memory-game", 
     details: "A simple memory game with a highscore.",
-    technologies: ["React Native", "Nativewind"],
+    technologies: ["React", "Tailwind"],
+    link: "https://fluffyflip.netlify.app/",
     // optional link
   },
 ];
